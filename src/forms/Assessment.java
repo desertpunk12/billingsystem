@@ -1,6 +1,7 @@
 package forms;
 
 import javax.swing.*;
+import java.lang.reflect.InvocationTargetException;
 
 /**
  * Created by dpunk12 on 11/3/2016.
@@ -11,6 +12,9 @@ public class Assessment {
 
     private JFrame frame;
     private JPanel panel1;
+    private JSplitPane splitPane;
+
+    private JMenuBar menuBar;
 
     public Assessment(boolean isAdmin) {
        this.isAdmin = isAdmin;
@@ -19,11 +23,21 @@ public class Assessment {
 
     public void show(){
         frame = new JFrame("DOSCST Student's Billing System");
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setContentPane(panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        frame.setLocationRelativeTo(null);
+
+        SwingUtilities.invokeLater(()-> splitPane.setDividerLocation(0.6));
+    }
+
+    private JMenuBar addMenuBar(){
+        JMenuBar menuBar = new JMenuBar();
+        JMenu mFile = new JMenu("File");
+        menuBar.add(mFile);
+        System.out.println(menuBar==null);
+        return menuBar;
     }
 
 

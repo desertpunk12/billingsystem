@@ -34,6 +34,9 @@ public class Login {
         frame.pack();
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
+
+        txtUsername.setText("postgres");
+        txtPassword.requestFocus();
     }
 
     private void listeners(){
@@ -54,6 +57,7 @@ public class Login {
                 }
             }
         });
+
         btnLogin.addActionListener(e -> {
             if(txtUsername.getText().isEmpty() || txtPassword.getPassword().length==0){
                 JOptionPane.showMessageDialog(null,"Please Enter Your Username and Password");
@@ -77,6 +81,7 @@ public class Login {
             }
         });
     }
+
 
     public static void main(String[] args) {
 

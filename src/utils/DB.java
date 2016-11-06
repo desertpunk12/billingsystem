@@ -74,38 +74,26 @@ public class DB {
         return query(query,false);
     }
 
-    public static ResultSet callf(String function, String ... params) throws SQLException{
-        String query = "SELECT "+function+"(";
-
-        query+=params[0];
-
-        if(params.length==1)
-            return query(query+")");
-
-        for (int i = 1; i < params.length-1; i++) {
-            query+=params[i]+",";
-        }
-
-        query+=params[params.length-1]+")";
-
-        return query(query);
+    public static ResultSet callf(String function, Object ... params) throws SQLException{
+        return query(queryJoinParams("SELECT "+function,params));
     }
 
-    public static ResultSet callp(String procedure, String ... params) throws SQLException{
-        String query = "CALL " + procedure+"(";
+    public static ResultSet callp(String procedure, Object ... params) throws SQLException{
+        return query(queryJoinParams("CALL "+procedure,params));
+    }
 
-        query+=params[0];
+    public static String queryJoinParams(String porfName,Object[] params){
+        String query = porfName;
 
-        if(params.length==1)
-            return query(query+")");
+        query += "(" + params[0];
+        for (int i = 1; i < params.length; i++)
+            query += "," + params[i];
 
-        for (int i = 1; i < params.length-1; i++) {
-            query+=params[i]+",";
-        }
+        return query + ")";
 
-        query+=params[params.length-1]+")";
 
-        return query(query);
+
+
     }
 
     public static void close() throws SQLException{

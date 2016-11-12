@@ -1,6 +1,7 @@
 package utils;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * Created by dpunk12 on 10/28/2016.
@@ -91,10 +92,19 @@ public class DB {
 
         return query + ")";
 
-
-
-
     }
+
+    public static String getOneStringFromResultSet(ResultSet rs) throws SQLException{
+        rs.next();
+        return rs.getString(1);
+    }
+
+
+    public static int getOneIntFromResultSet(ResultSet rs) throws SQLException{
+        rs.next();
+        return rs.getInt(1);
+    }
+
 
     public static void close() throws SQLException{
         if(con!=null && !con.isClosed()){

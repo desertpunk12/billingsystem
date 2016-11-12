@@ -1,11 +1,8 @@
 package forms;
 
-import javafx.scene.input.KeyCode;
 import utils.DB;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
@@ -35,7 +32,10 @@ public class Login {
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
 
-        txtUsername.setText("postgres");
+        txtUsername.setText("postgres");//Temporary
+        txtPassword.setText("xx");//Temporary
+
+
         txtPassword.requestFocus();
     }
 

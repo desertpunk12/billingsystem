@@ -23,7 +23,6 @@ public class Login {
         listeners();
     }
 
-
     public void show(){
         frame = new JFrame("DOSCST Student's Billing System");
         frame.setContentPane(panel1);
@@ -34,7 +33,6 @@ public class Login {
 
         txtUsername.setText("postgres");//Temporary
         txtPassword.setText("xx");//Temporary
-
 
         txtPassword.requestFocus();
     }
@@ -64,16 +62,15 @@ public class Login {
                 return;
             }
             if(DB.tryLogin(txtUsername.getText(),String.valueOf(txtPassword.getPassword()))){
-                try {
-                    ResultSet rs = DB.callf("public.isassessadmin", "");
-                    rs.next();
-                    boolean isAdmin = rs.getBoolean(1);
+//                try {
+//                    ResultSet rs = DB.callf("public.isassessadmin", "");
+//                    rs.next();
+                    boolean isAdmin = true;//rs.getBoolean(1);
                     new Assessment(isAdmin).show();
                     frame.dispose();
-
-                }catch (SQLException e1){
-                    e1.printStackTrace();
-                }
+//                }catch (SQLException e1){
+//                    e1.printStackTrace();
+//                }
 
             }else{
                 System.out.println("Login Failed Either No Connection or Login Details are Wrong!");
@@ -84,16 +81,12 @@ public class Login {
 
 
     public static void main(String[] args) {
-
-
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | InstantiationException | UnsupportedLookAndFeelException | IllegalAccessException e) {
             e.printStackTrace();
         }
-
         new Login().show();
-
         try {
             DB.getConnection();
         }catch (SQLException e){

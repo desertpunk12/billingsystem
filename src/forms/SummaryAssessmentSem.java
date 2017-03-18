@@ -7,4 +7,6 @@ import javax.swing.*;
  */
 public class SummaryAssessmentSem {
     private JTable table1;
+
+
 }

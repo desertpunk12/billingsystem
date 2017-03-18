@@ -23,6 +23,11 @@ public class SummaryAssessmentSy {
 //        TODO: process inserting of sems for specific semsesters
     }
 
+
+    private void test(){
+
+    }
+
     public JPanel getPanel(){
         return pnlSy;
     }

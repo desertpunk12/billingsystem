@@ -71,6 +71,15 @@ public class DB {
         return null;
     }
 
+//    public static String[] query(String query) throws SQLException{
+//        String[] data;
+//        ResultSet rs = query(query,false);
+//        rs.next();
+//
+//        ret
+//
+//    }
+
     public static ResultSet query(String query) throws SQLException{
         return query(query,false);
     }

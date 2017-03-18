@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>cc45bc3d-8755-4503-a701-c5cc5365b4af.SCHEMA:postgres.srgb</OriginalElement>
+  <nodes>
+    <node x="826.8078817733989" y="301.6439518336071">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.payment</node>
+    <node x="1747.7337164750957" y="158.78160919540224">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.fees</node>
+    <node x="1074.5013006565744" y="391.49453716281005">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.assessment</node>
+    <node x="1431.4128739068444" y="957.2265312320209">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.collection_header</node>
+    <node x="1396.160000343626" y="884.7495197377675">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.collection_breakdown</node>
+    <node x="902.2250886511533" y="975.1331555926356">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semsubject</node>
+    <node x="1032.3438087336394" y="584.6375150273456">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.faculty</node>
+    <node x="1426.815846112456" y="517.2372881355932">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.program</node>
+    <node x="682.0221674876847" y="312.7272851669404">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.misccodes</node>
+    <node x="1089.8411157381838" y="826.1521085113253">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.lec</node>
+    <node x="1293.672736337194" y="764.6666210397393">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.subject</node>
+    <node x="692.881646765994" y="849.4398950921617">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semsubject_schedule</node>
+    <node x="1434.077031958798" y="338.64841342928935">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.graduate</node>
+    <node x="1687.8831417624522" y="323.272030651341">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semester</node>
+    <node x="1731.7547892720306" y="84.33524904214545">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.ass_details</node>
+    <node x="1786.7414965986393" y="757.5080590794877">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.collection_details</node>
+    <node x="1092.8335198914347" y="296.3700273997522">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.torfiles</node>
+    <node x="680.2721674876846" y="406.8225232621785">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.paymentcode</node>
+    <node x="808.6916938144116" y="525.5981365377918">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.registration</node>
+    <node x="1182.443848098679" y="550.1043143598845">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.scholar</node>
+    <node x="811.8078817733989" y="233.97728516694042">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.payment_misc</node>
+    <node x="723.3950567276797" y="784.412893953092">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.room</node>
+    <node x="942.3451975318188" y="713.1073491895843">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.prerequisite</node>
+    <node x="1547.300766283525" y="419.73946360153263">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.tuitionmatrix</node>
+    <node x="1658.5689655172414" y="244.24137931034477">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.miscfeematrix</node>
+    <node x="832.8078817733989" y="381.6439518336071">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.refund</node>
+    <node x="1203.8325829666767" y="240.12820306675832">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.or_brkdown</node>
+    <node x="1451.6440817672274" y="262.8821299043851">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semcoding</node>
+    <node x="1528.006382328212" y="703.2653061224489">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.labmatrix</node>
+    <node x="894.3498186613914" y="175.11226508407515">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.deptlab</node>
+    <node x="1258.9232808633806" y="578.9440541038703">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.college</node>
+    <node x="710.9830965839046" y="939.3541266516816">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.block</node>
+    <node x="1485.3055555555557" y="626.5">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.progdisc</node>
+    <node x="1249.284638149045" y="464.1985472154964">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semstudent</node>
+    <node x="1411.007662835249" y="83.67049808429107">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.ass_header</node>
+    <node x="1172.3388848099949" y="657.2259082787633">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.department</node>
+    <node x="1240.105767590982" y="335.73653603465334">cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.student</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semstudent" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.scholar">
+      <point x="0.0" y="14.5" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.or_brkdown" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.student">
+      <point x="0.0" y="14.5" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.lec" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semsubject">
+      <point x="-23.5" y="-0.0" />
+      <point x="991.7164062361918" y="933.0518425588015" />
+      <point x="40.0" y="-14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.miscfeematrix" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.fees">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semsubject_schedule" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semsubject">
+      <point x="72.0" y="-0.0" />
+      <point x="-46.0" y="-0.0" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.registration" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semsubject">
+      <point x="0.0" y="14.5" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.registration" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semstudent">
+      <point x="46.0" y="-0.0" />
+      <point x="-47.0" y="-0.0" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.or_brkdown" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.payment">
+      <point x="-47.5" y="-0.0" />
+      <point x="39.5" y="-0.0" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.assessment" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semstudent">
+      <point x="0.0" y="14.5" />
+      <point x="1205.0619833083072" y="457.08577947485134" />
+      <point x="-47.0" y="-8.0" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.refund" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.payment">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.collection_details" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.fees">
+      <point x="-61.5" y="-0.0" />
+      <point x="26.5" y="-0.0" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.labmatrix" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.subject">
+      <point x="-41.0" y="-0.0" />
+      <point x="35.0" y="-0.0" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.faculty" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.department">
+      <point x="0.0" y="14.5" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.subject" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.department">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.torfiles" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.student">
+      <point x="34.0" y="-0.0" />
+      <point x="-36.0" y="-0.0" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.collection_breakdown" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.collection_header">
+      <point x="74.0" y="-0.0" />
+      <point x="-62.5" y="-0.0" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semsubject" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.subject">
+      <point x="46.0" y="-8.0" />
+      <point x="1196.8671702793015" y="874.138653671619" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semsubject" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.block">
+      <point x="0.0" y="14.5" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.collection_details" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.collection_header">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.graduate" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.program">
+      <point x="0.0" y="14.5" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.payment_misc" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.misccodes">
+      <point x="-54.5" y="-0.0" />
+      <point x="44.0" y="-0.0" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.payment" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.paymentcode">
+      <point x="-39.5" y="-0.0" />
+      <point x="52.5" y="-0.0" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.miscfeematrix" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semester">
+      <point x="-53.5" y="-0.0" />
+      <point x="39.5" y="-0.0" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.lec" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.subject">
+      <point x="23.5" y="-0.0" />
+      <point x="-35.0" y="-0.0" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.payment_misc" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.payment">
+      <point x="0.0" y="14.5" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.labmatrix" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semester">
+      <point x="41.0" y="-0.0" />
+      <point x="1689.8821600333865" y="493.5068520655979" />
+      <point x="-32.0" y="14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.tuitionmatrix" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.program">
+      <point x="-50.5" y="-0.0" />
+      <point x="39.0" y="-0.0" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semstudent" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.student">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.prerequisite" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.subject">
+      <point x="0.0" y="14.5" />
+      <point x="1199.6189539602371" y="726.5476433611375" />
+      <point x="-35.0" y="-8.0" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semstudent" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.program">
+      <point x="47.0" y="-0.0" />
+      <point x="-39.0" y="-0.0" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semester" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semcoding">
+      <point x="-39.5" y="-8.0" />
+      <point x="1623.3333333333333" y="342.00000000000006" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.ass_details" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.fees">
+      <point x="0.0" y="14.5" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.graduate" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semcoding">
+      <point x="39.5" y="-0.0" />
+      <point x="-45.5" y="-0.0" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.program" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.progdisc">
+      <point x="0.0" y="14.5" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.deptlab" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.fees">
+      <point x="36.0" y="-0.0" />
+      <point x="-26.5" y="-0.0" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semsubject_schedule" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.room">
+      <point x="0.0" y="14.5" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.graduate" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.student">
+      <point x="-39.5" y="-0.0" />
+      <point x="36.0" y="-0.0" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.ass_details" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.ass_header">
+      <point x="-43.5" y="-0.0" />
+      <point x="44.5" y="-0.0" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semsubject" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semester">
+      <point x="46.0" y="-0.0" />
+      <point x="1723.4696692853465" y="740.9842920295636" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.deptlab" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.department">
+      <point x="0.0" y="14.5" />
+      <point x="976.0472562358276" y="658.225306122449" />
+      <point x="-47.0" y="-0.0" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semstudent" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semester">
+      <point x="-47.0" y="-4.0" />
+      <point x="1013.1578477455948" y="474.9237790124059" />
+      <point x="1011.7959051419599" y="218.74272818373916" />
+      <point x="1497.2021458537367" y="211.0951812492793" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.tuitionmatrix" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.semester">
+      <point x="50.5" y="-0.0" />
+      <point x="-39.5" y="-0.0" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.department" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.college">
+      <point x="47.0" y="-8.0" />
+      <point x="1275.7346123559087" y="645.2635626408997" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.program" target="cc45bc3d-8755-4503-a701-c5cc5365b4af.TABLE:postgres.srgb.department">
+      <point x="-32.0" y="14.5" />
+      <point x="1414.3766988706761" y="639.9002048790953" />
+      <point x="47.0" y="-0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6868421052631577" x="1585.2796934865903" y="498.6743295019158" />
+  <SelectedNodes />
+  <Categories />
+</Diagram>
+

@@ -1,6 +1,6 @@
 package forms;
 
-import classess.AssessmentFunctions;
+import classess.Student;
 import utils.DB;
 
 import javax.swing.*;
@@ -8,7 +8,6 @@ import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 import java.awt.*;
 import java.awt.event.*;
-import java.lang.reflect.InvocationTargetException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -31,6 +30,10 @@ public class Assessment {
     private JButton btnSearchStudentByName;
     private JLabel btnLogout;
     private JButton btnFees;
+    private JLabel txtStudentFullname;
+    private JLabel txtStudentCourse;
+    private JLabel txtStudetScholarship;
+    private JLabel txtStudentYearlevel;
 
     private JMenuBar menuBar;
 
@@ -69,6 +72,7 @@ public class Assessment {
         });
 
         btnSearchStudentByName.addActionListener(e -> {
+
             SearchStudentByName ssbn = new SearchStudentByName(txtSearchStudentIdNumber);
             JFrame frame = new JFrame("Search Student By Name");
             frame.setContentPane(ssbn.getMainPanel());
@@ -83,15 +87,14 @@ public class Assessment {
             @Override
             public void keyPressed(KeyEvent e) {
                 if(e.getKeyCode()==KeyEvent.VK_ENTER){
-                    SwingUtilities.invokeLater(() -> AssessmentFunctions.showAssessment(txtSearchStudentIdNumber.getValue().toString()));;
-//                    SwingUtilities.invokeLater(() -> AssessmentFunctions.showAssessment(txtSearchStudentIdNumber.getValue().toString()));
+                    showAssessment();
                 }
             }
         });
 
 
         btnSearchStudentIdNumber.addActionListener(e -> {
-            AssessmentFunctions.showAssessment(txtSearchStudentIdNumber.getValue().toString());
+            showAssessment();
         });
 
         panel1.addComponentListener(new ComponentAdapter() {
@@ -101,6 +104,15 @@ public class Assessment {
                 splitPane.setDividerLocation(0.6);
             }
         });
+
+    }
+
+    public void showAssessment(){
+        System.out.println(txtSearchStudentIdNumber.getValue().toString());
+        Student student = new Student("2013-0008");
+        student.set(new String[]{"2013-0008", "Pete Christian", "Reyes", "BSIT", "IV", "Faculty Dependent"});
+        student.printValuesToConsole();
+        student.setTextFields(txtStudentFullname,txtStudentCourse,txtStudentYearlevel,txtStudetScholarship);
 
     }
 

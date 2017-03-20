@@ -2,6 +2,8 @@ package classess;
 
 import utils.ERR;
 
+import javax.swing.*;
+
 public class Student {
 
     private String studid, fname,lname,scholarship,course,yrlvl;
@@ -9,6 +11,7 @@ public class Student {
 
     public Student(String studid){
         this.studid = studid;
+        System.out.println("Wingo "+studid);
         getValues();
 
 
@@ -23,11 +26,15 @@ public class Student {
 	    this.scholarship = vals[5];
     }
 
+    public void printValuesToConsole(){
+        System.out.printf("Student ID: %s\nName: %s\nCourse: %s\nYear Level: %s\nScholarship: %s",studid,fname+" "+lname,course,yrlvl,scholarship);
+    }
+
     private String[] getValues(){
         if(studid == null || studid.equals(""))
-            return getValues(studid);
-        else
             ERR.pr("studid is null or empty!");
+        else
+            return getValues(studid);
 
         return null;
     }
@@ -37,6 +44,15 @@ public class Student {
 
 
         return null;
+    }
+
+    public void setTextFields(JLabel name, JLabel course, JLabel yrlvl, JLabel scholarship){
+        name.setText(this.fname+" "+this.lname);
+        course.setText(this.course);
+        yrlvl.setText(this.yrlvl);
+        scholarship.setText(this.scholarship);
+
+
     }
 
     public String getFullName(){

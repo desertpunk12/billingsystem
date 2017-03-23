@@ -1,6 +1,8 @@
 package forms;
 
 import classess.Student;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.swing.JRViewer;
 import utils.DB;
 
 import javax.swing.*;
@@ -12,14 +14,15 @@ import java.awt.event.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.HashMap;
 
-/**
- * Created by dpunk12 on 11/3/2016.
- */
 public class Assessment {
 
-   private boolean isAdmin;
+    private boolean isAdmin;
+    private Student currentStudent;
 
+
+    //<editor-fold defaultstate="collapsed" desc="UI Declarations">
     private JFrame frame;
     private JPanel panel1;
     private JSplitPane splitPane;
@@ -36,8 +39,7 @@ public class Assessment {
     private JLabel txtStudetScholarship;
     private JLabel txtStudentYearlevel;
     private JPanel pnlSummary;
-
-    private JMenuBar menuBar;
+    //</editor-fold>
 
     public Assessment(boolean isAdmin) {
         this.isAdmin = isAdmin;
@@ -47,6 +49,26 @@ public class Assessment {
         btnSearchStudentByName.setFocusable(false);//should change this latur
         btnFees.setFocusable(false);//should change this latur
         txtSearchStudentIdNumber.requestFocus();
+    }
+
+    public void viewReport(String studid){
+        String sourceFile = "";
+        try {
+
+            m.
+            while(rs.next()){
+
+            }
+
+            HashMap m = new HashMap();
+
+            JasperReport jr = JasperCompileManager.compileReport(sourceFile);
+            JasperPrint jp = JasperFillManager.fillReport(jr,m,DB.getConnection());
+            JRViewer pnlAssessmentReport = new JRViewer(jp);
+
+        } catch (JRException | SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     private void listeners(){
@@ -109,12 +131,13 @@ public class Assessment {
 
     }
 
+    //<editor-fold defaultstate="collapsed" desc="All About Assessment">
     //Needs to change latur
     public void showAssessment(){
-        Student student = new Student("2013-0008");
-        student.set(new String[]{"2013-0008", "Pete Christian", "Reyes", "BSIT", "IV", "Faculty Dependent"});
-        student.printValuesToConsole();
-        student.setTextFields(txtStudentFullname,txtStudentCourse,txtStudentYearlevel,txtStudetScholarship);
+        currentStudent = new Student("2013-0008");
+        currentStudent.set(new String[]{"2013-0008", "Pete Christian", "Reyes", "BSIT", "IV", "Faculty Dependent"});
+        currentStudent.printValuesToConsole();
+        currentStudent.setTextFields(txtStudentFullname,txtStudentCourse,txtStudentYearlevel,txtStudetScholarship);
 
 
         DefaultTableModel model = new DefaultTableModel(new String[][]{
@@ -135,6 +158,20 @@ public class Assessment {
 
         sssy.attach(pnlSummary);
     }
+    //</editor-fold>
+
+    private void init(){
+        setName();
+    }
+
+    private void setName(){
+        try {
+            ResultSet rs = DB.query("SELECT current_user");
+            lblName.setText(DB.getOneStringFromResultSet(rs));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }//Sets the name of the current user
 
     public void show(){
         frame = new JFrame("DOSCST Student's Billing System");
@@ -153,27 +190,6 @@ public class Assessment {
         }
 
         SwingUtilities.invokeLater(()-> splitPane.setDividerLocation(0.6));
-    }
-
-    private JMenuBar addMenuBar(){
-        JMenuBar menuBar = new JMenuBar();
-        JMenu mFile = new JMenu("File");
-        menuBar.add(mFile);
-        System.out.println(menuBar==null);
-        return menuBar;
-    }
-
-    private void init(){
-        setName();
-    }
-
-    private void setName(){
-        try {
-            ResultSet rs = DB.query("SELECT current_user");
-            lblName.setText(DB.getOneStringFromResultSet(rs));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     private void createUIComponents() {

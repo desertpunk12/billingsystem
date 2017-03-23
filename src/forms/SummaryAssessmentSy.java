@@ -1,6 +1,7 @@
 package forms;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
@@ -8,15 +9,14 @@ import java.awt.*;
  * Created by dpunk12 on 11/11/2016.
  */
 public class SummaryAssessmentSy {
-    private JLabel lblSchoolYear;
-    private JPanel pnlSems;
     private JPanel pnlMain;
 
     private String schoolYear;
 
 
-    public SummaryAssessmentSy(String schoolyear){
-        this.schoolYear = schoolyear;
+    public SummaryAssessmentSy(String schoolYear){
+        this.schoolYear = schoolYear;
+        pnlMain.setBorder(BorderFactory.createTitledBorder(new LineBorder(Color.BLACK),"School Year: "+schoolYear));
         insertSems();
     }
 
@@ -29,9 +29,9 @@ public class SummaryAssessmentSy {
 
         //remove this shit
 
-        SummaryAssessmentSem sssem = new SummaryAssessmentSem();
-        SummaryAssessmentSem sssem2 = new SummaryAssessmentSem();
-        SummaryAssessmentSem sssem3 = new SummaryAssessmentSem();
+        SummaryAssessmentSem sssem = new SummaryAssessmentSem(schoolYear,'s');
+        SummaryAssessmentSem sssem2 = new SummaryAssessmentSem(schoolYear,'2');
+        SummaryAssessmentSem sssem3 = new SummaryAssessmentSem(schoolYear,'1');
 
         DefaultTableModel model = new DefaultTableModel(new String[][]{
                 {"Wingo","Ongiw"},
@@ -42,9 +42,9 @@ public class SummaryAssessmentSy {
         sssem2.setTblDataModel(model);
         sssem3.setTblDataModel(model);
 
-        sssem.attach(pnlSems);
-        sssem2.attach(pnlSems);
-        sssem3.attach(pnlSems);
+        sssem.attach(pnlMain);
+        sssem2.attach(pnlMain);
+        sssem3.attach(pnlMain);
     }
 
     public void attach(JPanel pnl){

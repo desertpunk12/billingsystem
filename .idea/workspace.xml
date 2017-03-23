@@ -2,30 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44575bb7-fcbf-4d2f-8e8c-ce86d23fcbcd" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/classess/Account.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/classess/Queries.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/classess/Student.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/Fees.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/Login$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/Login$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/Login.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/SearchStudentByName$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/SearchStudentByName.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/SummaryAssessmentSem.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/SummaryAssessmentSemManual.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/SummaryAssessmentSy.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/SummaryAssessmentSyManual.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/tests/Testing.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/utils/DB.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/utils/ERR.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/utils/LOG.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/utils/todo.class" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/classess/Account.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/classess/Queries.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/classess/Student.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment$2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment$3.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/Fees.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/Login$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/Login$2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/Login.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/SearchStudentByName$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/SearchStudentByName.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/SummaryAssessmentSem$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/SummaryAssessmentSem.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/SummaryAssessmentSemManual.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/SummaryAssessmentSy.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/SummaryAssessmentSyManual.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/tests/Testing.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/utils/DB.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/utils/ERR.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/utils/LOG.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/billingsystem/utils/todo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/utils/Queries.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment$4.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classess/Student.java" afterPath="$PROJECT_DIR$/src/classess/Student.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/forms/Assessment.form" afterPath="$PROJECT_DIR$/src/forms/Assessment.form" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/forms/Assessment.java" afterPath="$PROJECT_DIR$/src/forms/Assessment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/forms/SummaryAssessmentSem.form" afterPath="$PROJECT_DIR$/src/forms/SummaryAssessmentSem.form" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/forms/SummaryAssessmentSem.java" afterPath="$PROJECT_DIR$/src/forms/SummaryAssessmentSem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/forms/SummaryAssessmentSy.form" afterPath="$PROJECT_DIR$/src/forms/SummaryAssessmentSy.form" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/forms/SummaryAssessmentSy.java" afterPath="$PROJECT_DIR$/src/forms/SummaryAssessmentSy.java" />
     </list>
     <ignored path="billingsystem.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,21 +56,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DB.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/DB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1666">
-              <caret line="99" column="36" selection-start-line="99" selection-start-column="36" selection-end-line="99" selection-end-column="36" />
-              <folding />
-            </state>
+      <file leaf-file-name="SummaryAssessmentSem.form" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/forms/SummaryAssessmentSem.form">
+          <provider selected="true" editor-type-id="ui-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Assessment.form" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/forms/Assessment.form">
+          <provider selected="true" editor-type-id="ui-designer">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="SummaryAssessmentSy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/forms/SummaryAssessmentSy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="884">
-              <caret line="52" column="29" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
+            <state relative-caret-position="306">
+              <caret line="33" column="75" selection-start-line="33" selection-start-column="75" selection-end-line="33" selection-end-column="75" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -69,28 +82,63 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="SummaryAssessmentSem.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/forms/SummaryAssessmentSem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="27" column="59" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SummaryAssessmentSy.form" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/forms/SummaryAssessmentSy.form">
+          <provider selected="true" editor-type-id="ui-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Student.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/classess/Student.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Assessment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/forms/Assessment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="790">
-              <caret line="128" column="4" selection-start-line="128" selection-start-column="4" selection-end-line="128" selection-end-column="4" />
+            <state relative-caret-position="31">
+              <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc;n#frame#0;n#Assessment#0" expanded="true" />
-                <element signature="method#listeners#0;class#Assessment#0" expanded="false" />
-                <element signature="e#4746#4808#0" expanded="false" />
+                <element signature="class#2287:2757" expanded="false" />
                 <element signature="method#setName#0;class#Assessment#0" expanded="false" />
                 <element signature="method#show#0;class#Assessment#0" expanded="false" />
-                <element signature="method#createUIComponents#0;class#Assessment#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JasperViewer.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/jasperreports-6.3.1.jar!/net/sf/jasperreports/view/JasperViewer.class">
+      <file leaf-file-name="changestodb.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utils/changestodb.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1207">
-              <caret line="93" column="11" selection-start-line="93" selection-start-column="11" selection-end-line="93" selection-end-column="11" />
+            <state relative-caret-position="0">
+              <caret line="0" column="21" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Queries.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utils/Queries.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="63" selection-start-line="11" selection-start-column="63" selection-end-line="11" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -99,8 +147,8 @@
       <file leaf-file-name="JRViewer.class" pinned="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/lib/jasperreports-6.3.1.jar!/net/sf/jasperreports/swing/JRViewer.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="59" column="11" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
+            <state relative-caret-position="289">
+              <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -147,16 +195,17 @@
         <option value="$PROJECT_DIR$/src/classess/Queries.java" />
         <option value="$PROJECT_DIR$/src/classess/Account.java" />
         <option value="$PROJECT_DIR$/src/classess/AssessmentFunctions.java" />
-        <option value="$PROJECT_DIR$/src/classess/Student.java" />
         <option value="$PROJECT_DIR$/src/forms/DBSettings.form" />
         <option value="$PROJECT_DIR$/src/forms/DBSettings.java" />
-        <option value="$PROJECT_DIR$/src/forms/SummaryAssessmentSy.form" />
-        <option value="$PROJECT_DIR$/src/forms/Assessment.form" />
-        <option value="$PROJECT_DIR$/src/forms/SummaryAssessmentSem.java" />
-        <option value="$PROJECT_DIR$/src/forms/SummaryAssessmentSem.form" />
-        <option value="$PROJECT_DIR$/src/forms/SummaryAssessmentSy.java" />
         <option value="$PROJECT_DIR$/lib/jasperreports-6.3.1.jar!/net/sf/jasperreports/view/JasperViewer.class" />
+        <option value="$PROJECT_DIR$/src/forms/Assessment.form" />
+        <option value="$PROJECT_DIR$/src/classess/Student.java" />
         <option value="$PROJECT_DIR$/src/forms/Assessment.java" />
+        <option value="$PROJECT_DIR$/src/forms/SummaryAssessmentSy.form" />
+        <option value="$PROJECT_DIR$/src/forms/SummaryAssessmentSem.form" />
+        <option value="$PROJECT_DIR$/src/utils/Queries.java" />
+        <option value="$PROJECT_DIR$/src/forms/SummaryAssessmentSy.java" />
+        <option value="$PROJECT_DIR$/src/forms/SummaryAssessmentSem.java" />
       </list>
     </option>
   </component>
@@ -220,8 +269,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -229,10 +278,6 @@
               <option name="myItemId" value="billingsystem" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -241,120 +286,12 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="billingsystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="billingsystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="billingsystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="billingsystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="billingsystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="billingsystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="billingsystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SummaryAssessmentSy" />
-              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="billingsystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="billingsystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SummaryAssessmentSem" />
-              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="billingsystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="billingsystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="billingsystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="billingsystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -368,7 +305,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/jasperreports-6.3.1.jar!/" />
     <property name="TODO_SCOPE" value="Project Files" />
-    <property name="SearchEverywhereHistoryKey" value="assessment&#9;PSI&#9;JAVA://forms.Assessment&#10;assess&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/forms/SummaryAssessmentSy.java&#10;asses&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/classess/AssessmentFunctions.java&#10;asse&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/forms/Assessment.java&#10;acc&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/classess/Account.java&#10;assessment.form&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/forms/Assessment.form&#10;assessment.&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/forms/Assessment.java&#10;Assessment&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/forms/SummaryAssessmentSem.java&#10;summary&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/forms/SummaryAssessmentSem.java&#10;todo&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/utils/todo.java&#10;Assess&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/forms/Assessment.form&#10;db&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/utils/changestodb.txt&#10;test&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/tests/Testing.java&#10;lo&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/forms/Login.java&#10;Testing&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/tests/Testing.java&#10;TODO&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/utils/todo.java" />
+    <property name="SearchEverywhereHistoryKey" value="assessment&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/forms/Assessment.form&#10;assess&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/forms/SummaryAssessmentSy.java&#10;asses&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/classess/AssessmentFunctions.java&#10;asse&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/forms/Assessment.java&#10;acc&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/classess/Account.java&#10;assessment.form&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/forms/Assessment.form&#10;assessment.&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/forms/Assessment.java&#10;Assessment&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/forms/SummaryAssessmentSem.java&#10;summary&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/forms/SummaryAssessmentSem.java&#10;todo&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/utils/todo.java&#10;Assess&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/forms/Assessment.form&#10;db&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/utils/changestodb.txt&#10;test&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/tests/Testing.java&#10;lo&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/forms/Login.java&#10;Testing&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/tests/Testing.java&#10;TODO&#9;FILE&#9;file://C:/Users/dpunk12/Desktop/Thesis/Code/billingsystem/src/utils/todo.java" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="298" />
   </component>
   <component name="RecentsManager">
@@ -988,11 +925,12 @@
       <workItem from="1490154151436" duration="5285000" />
       <workItem from="1490242947817" duration="9104000" />
       <workItem from="1490269446708" duration="301000" />
+      <workItem from="1490270166092" duration="6165000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="278275000" />
+    <option name="totallyTimeSpent" value="284440000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1006,7 +944,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3264095" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1020,8 +958,9 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32789317" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22913617" sideWeight="0.49217004" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22913617" sideWeight="0.49217004" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32789317" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2496329" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2489019" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1032,7 +971,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1062,24 +1000,15 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/utils/changestodb.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/forms/Assessment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
           <folding>
             <element signature="n#!!doc;n#frame#0;n#Assessment#0" expanded="true" />
-            <element signature="method#listeners#0;class#Assessment#0" expanded="false" />
-            <element signature="e#4746#4808#0" expanded="false" />
+            <element signature="class#2287:2757" expanded="false" />
             <element signature="method#setName#0;class#Assessment#0" expanded="false" />
             <element signature="method#show#0;class#Assessment#0" expanded="false" />
-            <element signature="method#createUIComponents#0;class#Assessment#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1272,18 +1201,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/classess/AssessmentFunctions.java" />
-    <entry file="file://$PROJECT_DIR$/src/classess/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="46" column="4" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1384#1385#0" expanded="false" />
-            <element signature="e#1422#1423#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_102/src.zip!/java/awt/Frame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-317">
@@ -1303,13 +1220,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/changestodb.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="21" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1347,6 +1257,80 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/forms/SummaryAssessmentSemManual.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/forms/SummaryAssessmentSyManual.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/jasperreports-6.3.1.jar!/net/sf/jasperreports/view/JasperViewer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1207">
+          <caret line="93" column="11" selection-start-line="93" selection-start-column="11" selection-end-line="93" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/jasperreports-6.3.1.jar!/net/sf/jasperreports/swing/JRViewer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classess/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/DB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="99" column="36" selection-start-line="99" selection-start-column="36" selection-end-line="99" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/forms/SummaryAssessmentSem.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/changestodb.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="21" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/Queries.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="63" selection-start-line="11" selection-start-column="63" selection-end-line="11" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/forms/Assessment.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
@@ -1368,87 +1352,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/forms/SummaryAssessmentSemManual.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/forms/SummaryAssessmentSyManual.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/forms/SummaryAssessmentSem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="29" column="11" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/forms/SummaryAssessmentSem.form">
-      <provider editor-type-id="ui-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/jasperreports-6.3.1.jar!/net/sf/jasperreports/view/JasperViewer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="93" column="11" selection-start-line="93" selection-start-column="11" selection-end-line="93" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/forms/SummaryAssessmentSy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="52" column="29" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
+        <state relative-caret-position="306">
+          <caret line="33" column="75" selection-start-line="33" selection-start-column="75" selection-end-line="33" selection-end-column="75" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/jasperreports-6.3.1.jar!/net/sf/jasperreports/swing/JRViewer.class">
+    <entry file="file://$PROJECT_DIR$/src/forms/SummaryAssessmentSem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="59" column="11" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/DB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1666">
-          <caret line="99" column="36" selection-start-line="99" selection-start-column="36" selection-end-line="99" selection-end-column="36" />
+        <state relative-caret-position="212">
+          <caret line="27" column="59" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/forms/Assessment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="790">
-          <caret line="128" column="4" selection-start-line="128" selection-start-column="4" selection-end-line="128" selection-end-column="4" />
+        <state relative-caret-position="31">
+          <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc;n#frame#0;n#Assessment#0" expanded="true" />
-            <element signature="method#listeners#0;class#Assessment#0" expanded="false" />
-            <element signature="e#4746#4808#0" expanded="false" />
+            <element signature="class#2287:2757" expanded="false" />
             <element signature="method#setName#0;class#Assessment#0" expanded="false" />
             <element signature="method#show#0;class#Assessment#0" expanded="false" />
-            <element signature="method#createUIComponents#0;class#Assessment#0" expanded="false" />
           </folding>
         </state>
       </provider>

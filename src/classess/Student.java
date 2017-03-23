@@ -17,7 +17,7 @@ public class Student {
 
     }
 
-    public void set(String[] vals){
+    public void setBasicInfo(String[] vals){
 	    this.studid = vals[0];
 	    this.fname = vals[1];
 	    this.lname = vals[2];
@@ -47,10 +47,11 @@ public class Student {
     }
 
     public void setTextFields(JLabel name, JLabel course, JLabel yrlvl, JLabel scholarship){
-        name.setText(this.fname+" "+this.lname);
-        course.setText(this.course);
-        yrlvl.setText(this.yrlvl);
-        scholarship.setText(this.scholarship);
+
+        SwingUtilities.invokeLater(()->{
+
+        });
+
 
 
     }

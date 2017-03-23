@@ -28,17 +28,15 @@ public class Assessment {
     private JSplitPane splitPane;
     private JLabel lblName;
     private JTabbedPane tabPreviousAccounts;
-    private JTable tblCurrentAssessment;
     private JFormattedTextField txtSearchStudentIdNumber;
     private JButton btnSearchStudentIdNumber;
     private JButton btnSearchStudentByName;
     private JLabel btnLogout;
     private JButton btnFees;
-    private JLabel txtStudentFullname;
-    private JLabel txtStudentCourse;
-    private JLabel txtStudetScholarship;
-    private JLabel txtStudentYearlevel;
     private JPanel pnlSummary;
+    private JTabbedPane tabbedPane1;
+    private JPanel pnlAssessmentView;
+    private JButton editButton;
     //</editor-fold>
 
     public Assessment(boolean isAdmin) {
@@ -52,14 +50,18 @@ public class Assessment {
     }
 
     public void viewReport(String studid){
-        String sourceFile = "";
         try {
-
+            String sourceFile = "";
             HashMap m = new HashMap();
 
             JasperReport jr = JasperCompileManager.compileReport(sourceFile);
             JasperPrint jp = JasperFillManager.fillReport(jr,m,DB.getConnection());
             JRViewer pnlAssessmentReport = new JRViewer(jp);
+            SwingUtilities.invokeLater(()->{
+                pnlAssessmentView.add(pnlAssessmentReport);
+                pnlAssessmentView.updateUI();
+                pnlAssessmentView.repaint();
+            });
 
         } catch (JRException | SQLException e) {
             e.printStackTrace();
@@ -126,34 +128,47 @@ public class Assessment {
 
     }
 
-    //<editor-fold defaultstate="collapsed" desc="All About Assessment">
+    //<editor-fold defaultstate="collapsed" desc="Printables">
     //Needs to change latur
     public void showAssessment(){
-        currentStudent = new Student("2013-0008");
-        currentStudent.set(new String[]{"2013-0008", "Pete Christian", "Reyes", "BSIT", "IV", "Faculty Dependent"});
+        String studid = txtSearchStudentIdNumber.getValue().toString();
+
+        currentStudent = new Student(studid);
+        currentStudent.setBasicInfo(new String[]{studid, "Pete Christian", "Reyes", "BSIT", "IV", "Faculty Dependent"});
         currentStudent.printValuesToConsole();
-        currentStudent.setTextFields(txtStudentFullname,txtStudentCourse,txtStudentYearlevel,txtStudetScholarship);
 
+//        viewReport(studid);
 
+        //TODO: remove this shit
         DefaultTableModel model = new DefaultTableModel(new String[][]{
                 {"Wingo","Ongiw"},
                 {"Hello","Heeelo"}
         },new String[]{"Hello","World"});
 
-        tblCurrentAssessment.setModel(model);
 
 
 
-        //removthis shit
+        //TODO: removthis shit
         showSummaryAssessment();
     }
+
+
+
+    public void showPermit(){
+
+    }
+
+
+    public void showClearance(){
+
+    }
+    //</editor-fold>
 
     public void showSummaryAssessment(){
         SummaryAssessmentSy sssy = new SummaryAssessmentSy("2013 - 2014");
 
         sssy.attach(pnlSummary);
     }
-    //</editor-fold>
 
     private void init(){
         setName();
@@ -191,13 +206,4 @@ public class Assessment {
     }
     //</editor-fold>
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-        tblCurrentAssessment = new JTable(){
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        };
-    }
 }

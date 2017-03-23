@@ -55,11 +55,6 @@ public class Assessment {
         String sourceFile = "";
         try {
 
-            m.
-            while(rs.next()){
-
-            }
-
             HashMap m = new HashMap();
 
             JasperReport jr = JasperCompileManager.compileReport(sourceFile);
@@ -164,6 +159,8 @@ public class Assessment {
         setName();
     }
 
+    //<editor-fold defaultstate=collapsed desc="No Change Needed">
+
     private void setName(){
         try {
             ResultSet rs = DB.query("SELECT current_user");
@@ -172,6 +169,7 @@ public class Assessment {
             e.printStackTrace();
         }
     }//Sets the name of the current user
+
 
     public void show(){
         frame = new JFrame("DOSCST Student's Billing System");
@@ -191,6 +189,7 @@ public class Assessment {
 
         SwingUtilities.invokeLater(()-> splitPane.setDividerLocation(0.6));
     }
+    //</editor-fold>
 
     private void createUIComponents() {
         // TODO: place custom component creation code here

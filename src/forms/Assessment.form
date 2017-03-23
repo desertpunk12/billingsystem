@@ -145,15 +145,22 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <grid id="319be" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                    <margin top="0" left="0" bottom="0" right="0"/>
+                  <scrollpane id="d4eeb">
                     <constraints>
                       <tabbedpane title="Summary"/>
                     </constraints>
                     <properties/>
                     <border type="none"/>
-                    <children/>
-                  </grid>
+                    <children>
+                      <grid id="319be" binding="pnlSummary" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                        <margin top="0" left="0" bottom="0" right="0"/>
+                        <constraints/>
+                        <properties/>
+                        <border type="none"/>
+                        <children/>
+                      </grid>
+                    </children>
+                  </scrollpane>
                 </children>
               </tabbedpane>
             </children>
@@ -276,7 +283,7 @@
                     <properties/>
                     <border type="none"/>
                     <children>
-                      <component id="6c62f" class="javax.swing.JTable" binding="tblCurrentAssessment">
+                      <component id="6c62f" class="javax.swing.JTable" binding="tblCurrentAssessment" custom-create="true">
                         <constraints/>
                         <properties/>
                       </component>
@@ -298,7 +305,9 @@
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <text value="0000 - 0000"/>
+                </properties>
               </component>
               <component id="28e00" class="javax.swing.JButton" binding="btnSearchStudentIdNumber">
                 <constraints>

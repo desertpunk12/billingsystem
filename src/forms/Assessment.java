@@ -4,6 +4,7 @@ import classess.Student;
 import utils.DB;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 import java.awt.*;
@@ -34,6 +35,7 @@ public class Assessment {
     private JLabel txtStudentCourse;
     private JLabel txtStudetScholarship;
     private JLabel txtStudentYearlevel;
+    private JPanel pnlSummary;
 
     private JMenuBar menuBar;
 
@@ -107,13 +109,31 @@ public class Assessment {
 
     }
 
+    //Needs to change latur
     public void showAssessment(){
-        System.out.println(txtSearchStudentIdNumber.getValue().toString());
         Student student = new Student("2013-0008");
         student.set(new String[]{"2013-0008", "Pete Christian", "Reyes", "BSIT", "IV", "Faculty Dependent"});
         student.printValuesToConsole();
         student.setTextFields(txtStudentFullname,txtStudentCourse,txtStudentYearlevel,txtStudetScholarship);
 
+
+        DefaultTableModel model = new DefaultTableModel(new String[][]{
+                {"Wingo","Ongiw"},
+                {"Hello","Heeelo"}
+        },new String[]{"Hello","World"});
+
+        tblCurrentAssessment.setModel(model);
+
+
+
+        //removthis shit
+        showSummaryAssessment();
+    }
+
+    public void showSummaryAssessment(){
+        SummaryAssessmentSy sssy = new SummaryAssessmentSy("2013 - 2014");
+
+        sssy.attach(pnlSummary);
     }
 
     public void show(){
@@ -124,7 +144,6 @@ public class Assessment {
         frame.pack();
         frame.setVisible(true);
 
-        SwingUtilities.invokeLater(()-> splitPane.setDividerLocation(0.6));
         try{
             MaskFormatter formatter = new MaskFormatter("#### - ####");
             formatter.setPlaceholderCharacter('0');
@@ -132,6 +151,8 @@ public class Assessment {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+        SwingUtilities.invokeLater(()-> splitPane.setDividerLocation(0.6));
     }
 
     private JMenuBar addMenuBar(){
@@ -155,4 +176,13 @@ public class Assessment {
         }
     }
 
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+        tblCurrentAssessment = new JTable(){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+    }
 }

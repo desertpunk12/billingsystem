@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44575bb7-fcbf-4d2f-8e8c-ce86d23fcbcd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment$1.class" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment$2.class" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment$3.class" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment.class" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/SummaryAssessmentSem$1.class" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/SummaryAssessmentSem$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/SummaryAssessmentSem.class" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/SummaryAssessmentSem.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/SummaryAssessmentSy.class" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/SummaryAssessmentSy.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classess/Student.java" afterPath="$PROJECT_DIR$/src/classess/Student.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/forms/Assessment.form" afterPath="$PROJECT_DIR$/src/forms/Assessment.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/forms/Assessment.java" afterPath="$PROJECT_DIR$/src/forms/Assessment.java" />
     </list>
     <ignored path="billingsystem.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -262,6 +252,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="billingsystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="billingsystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="billingsystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="billingsystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasperforms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -282,6 +304,9 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="298" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\dpunk12\Desktop\Thesis\Code\billingsystem\src\jasperforms" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\dpunk12\Desktop\Thesis\Code\billingsystem\src\forms" />
       <recent name="C:\Users\dpunk12\Desktop\Thesis\Code\billingsystem\src" />
@@ -901,12 +926,12 @@
       <workItem from="1490270166092" duration="6800000" />
       <workItem from="1490299987173" duration="345000" />
       <workItem from="1490303251285" duration="1725000" />
-      <workItem from="1490317741790" duration="3964000" />
+      <workItem from="1490317741790" duration="4313000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="291109000" />
+    <option name="totallyTimeSpent" value="291458000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -976,13 +1001,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/forms/Login.form">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/forms/Login.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -1366,6 +1384,14 @@
             <element signature="e#1176#1177#0" expanded="true" />
             <element signature="e#1208#1209#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jasperforms/sample permit.jrxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

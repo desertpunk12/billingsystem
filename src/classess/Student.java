@@ -8,12 +8,10 @@ public class Student {
 
     private String studid, fname,lname,scholarship,course,yrlvl;
 
-
     public Student(String studid){
         this.studid = studid;
         System.out.println("Wingo "+studid);
         getValues();
-
 
     }
 
@@ -58,6 +56,10 @@ public class Student {
 
     public String getFullName(){
         return fname+" "+lname;
+    }
+
+    public String getStudId(){
+        return studid;
     }
 
 

@@ -145,7 +145,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <scrollpane id="d4eeb">
+                  <scrollpane id="d4eeb" binding="scrlSummary">
                     <constraints>
                       <tabbedpane title="Summary"/>
                     </constraints>

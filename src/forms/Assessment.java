@@ -37,6 +37,7 @@ public class Assessment {
     private JTabbedPane tabbedPane1;
     private JPanel pnlAssessmentView;
     private JButton editButton;
+    private JScrollPane scrlSummary;
     //</editor-fold>
 
     public Assessment(boolean isAdmin) {
@@ -47,6 +48,9 @@ public class Assessment {
         btnSearchStudentByName.setFocusable(false);//should change this latur
         btnFees.setFocusable(false);//should change this latur
         txtSearchStudentIdNumber.requestFocus();
+        scrlSummary.getVerticalScrollBar().setUnitIncrement(16);
+
+
     }
 
     public void viewReport(String studid){

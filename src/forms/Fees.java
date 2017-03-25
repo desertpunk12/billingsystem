@@ -1,12 +1,14 @@
 package forms;
 
+import utils.JFrameHelper;
+
 import javax.swing.*;
 
 /**
  * Created by dpunk12 on 2/2/2017.
  */
 public class Fees {
-    private JPanel panel1;
+    private JPanel pnlMain;
     private JTable table1;
     private JButton updateButton;
     private JTextField textField1;
@@ -17,12 +19,6 @@ public class Fees {
 
 
     public void show(){
-        frame = new JFrame("DOSCST Student's Billing System");
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        frame.setContentPane(panel1);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-
+        JFrameHelper.show(frame,pnlMain,"Fess",true);
     }
 }

@@ -1,5 +1,7 @@
 package forms;
 
+import utils.JFrameHelper;
+
 import javax.swing.*;
 
 /**
@@ -16,4 +18,14 @@ public class EditAssessmentView {
     private JTextField textField6;
     private JButton saveButton;
     private JTextField textField7;
+    private JPanel pnlMain;
+
+    private JFrame frame;
+
+
+    public void show(){
+        JFrameHelper.show(frame,pnlMain,"Edit Assessment");
+    }
+
+
 }

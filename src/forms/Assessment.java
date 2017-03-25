@@ -4,6 +4,7 @@ import classess.Student;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.swing.JRViewer;
 import utils.DB;
+import utils.JFrameHelper;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -21,10 +22,9 @@ public class Assessment {
     private boolean isAdmin;
     private Student currentStudent;
 
-
     //<editor-fold defaultstate="collapsed" desc="UI Declarations">
     private JFrame frame;
-    private JPanel panel1;
+    private JPanel pnlMain;
     private JSplitPane splitPane;
     private JLabel lblName;
     private JTabbedPane tabPreviousAccounts;
@@ -36,7 +36,7 @@ public class Assessment {
     private JPanel pnlSummary;
     private JTabbedPane tabbedPane1;
     private JPanel pnlAssessmentView;
-    private JButton editButton;
+    private JButton btnEditAssessmentView;
     private JScrollPane scrlSummary;
     //</editor-fold>
 
@@ -73,6 +73,11 @@ public class Assessment {
     }
 
     private void listeners(){
+
+        btnEditAssessmentView.addActionListener((e)->{
+            EditAssessmentView editView = new EditAssessmentView();
+            editView.show();
+        });
 
         btnFees.addActionListener(e -> new Fees().show());
 
@@ -112,7 +117,8 @@ public class Assessment {
             @Override
             public void keyPressed(KeyEvent e) {
                 if(e.getKeyCode()==KeyEvent.VK_ENTER){
-                    showAssessment();
+                    btnSearchStudentIdNumber.doClick();
+//                    showAssessment();
                 }
             }
         });
@@ -122,7 +128,7 @@ public class Assessment {
             showAssessment();
         });
 
-        panel1.addComponentListener(new ComponentAdapter() {
+        pnlMain.addComponentListener(new ComponentAdapter() {
             @Override
             public void componentResized(ComponentEvent e) {
                 super.componentResized(e);
@@ -132,15 +138,21 @@ public class Assessment {
 
     }
 
+    private void setAssessmentVars(){
+
+    }
+
     //<editor-fold defaultstate="collapsed" desc="Printables">
     //Needs to change latur
     public void showAssessment(){
-        String studid = txtSearchStudentIdNumber.getValue().toString();
+        String studid = txtSearchStudentIdNumber.getText();
 
         currentStudent = new Student(studid);
         currentStudent.setBasicInfo(new String[]{studid, "Pete Christian", "Reyes", "BSIT", "IV", "Faculty Dependent"});
         currentStudent.printValuesToConsole();
 
+
+        setAssessmentVars();
 //        viewReport(studid);
 
         //TODO: remove this shit
@@ -191,20 +203,20 @@ public class Assessment {
 
 
     public void show(){
-        frame = new JFrame("DOSCST Student's Billing System");
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        frame.setContentPane(panel1);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
+        JFrameHelper.show(frame,pnlMain,"DOSCST Billing System",true);
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    try{
+                        MaskFormatter formatter = new MaskFormatter("#### - ####");
+                        formatter.setPlaceholderCharacter('0');
+                        txtSearchStudentIdNumber.setFormatterFactory(new DefaultFormatterFactory(formatter));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
 
-        try{
-            MaskFormatter formatter = new MaskFormatter("#### - ####");
-            formatter.setPlaceholderCharacter('0');
-            txtSearchStudentIdNumber.setFormatterFactory(new DefaultFormatterFactory(formatter));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
 
         SwingUtilities.invokeLater(()-> splitPane.setDividerLocation(0.6));
     }

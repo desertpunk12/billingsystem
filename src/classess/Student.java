@@ -25,7 +25,7 @@ public class Student {
     }
 
     public void printValuesToConsole(){
-        System.out.printf("Student ID: %s\nName: %s\nCourse: %s\nYear Level: %s\nScholarship: %s",studid,fname+" "+lname,course,yrlvl,scholarship);
+        System.out.printf("Student ID: %s\nName: %s\nCourse: %s\nYear Level: %s\nScholarship: %s\n",studid,fname+" "+lname,course,yrlvl,scholarship);
     }
 
     private String[] getValues(){

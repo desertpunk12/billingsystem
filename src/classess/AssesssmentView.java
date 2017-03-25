@@ -1,9 +1,8 @@
 package classess;
 
-/**
- * Created by dpunk12 on 3/24/2017.
- */
+
 public class AssesssmentView {
+
     private String studname;
     private String yrandcourse;
     private String currentDate;
@@ -12,6 +11,14 @@ public class AssesssmentView {
     private String[][] subjects;
     private String[][] fees;
 
+    private AssessmentVars previous;
+    private AssessmentVars current;
+
+    public AssesssmentView() {
+
+    }
+
+    //<editor-fold defaultstate="collapsed" desc="Getters and Setters">
     public String getStudname() {
         return studname;
     }
@@ -59,4 +66,6 @@ public class AssesssmentView {
     public void setFees(String[][] fees) {
         this.fees = fees;
     }
+
+    //</editor-fold>
 }

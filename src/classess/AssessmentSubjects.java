@@ -1,10 +1,8 @@
 package classess;
 
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import utils.DB;
+import utils.ERR;
 
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,80 +11,46 @@ import java.util.List;
  */
 public class AssessmentSubjects {
 
-    private String studid;
 
     private List<AssessmentSubject> subjectList;
 
+    private String studid;
+
     public AssessmentSubjects(String studid){
-        this.studid=studid;
-
         subjectList = new ArrayList<AssessmentSubject>();
-    }
-
-    public void fetchDataFromDB(){
-        subjectList.clear();
+        this.studid=studid;
+        fetchData();
 
     }
 
+    private void fetchData(){
+        if(studid == null || studid.equals(""))
+            ERR.pr("studid is null or empty!");
+
+        fetchData(studid);
+
+    }
+
+
+    private void fetchData(String studid){
+        //TODO: remove this latur
+        subjectList.add(new AssessmentSubject("Econ 10",3D,0D,3D));
+        subjectList.add(new AssessmentSubject("IT 141",2D,3D,3D));
+        subjectList.add(new AssessmentSubject("IT 142",2D,3D,3D));
+        subjectList.add(new AssessmentSubject("IT 143",3D,0D,3D));
+        subjectList.add(new AssessmentSubject("IT 151",2D,3D,3D));
+        subjectList.add(new AssessmentSubject("IT 154",2D,3D,3D));
+        subjectList.add(new AssessmentSubject("IT 157",2D,3D,3D));
+
+    }
 
     public JRBeanCollectionDataSource getDataSource(){
-        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(subjectList);
+
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(subjectList,false);
+
 
         return dataSource;
     }
 
-
-
-
-
-    class AssessmentSubject{
-
-        private String subject;
-        private String lec;
-        private String lab;
-        private String credunits;
-
-        public AssessmentSubject(String subject, String lec, String lab, String credunits) {
-            this.subject = subject;
-            this.lec = lec;
-            this.lab = lab;
-            this.credunits = credunits;
-        }
-
-        //<editor-fold defaultstate="collapsed" desc="Getters and Setters">
-        public String getSubject() {
-            return subject;
-        }
-
-        public void setSubject(String subject) {
-            this.subject = subject;
-        }
-
-        public String getLec() {
-            return lec;
-        }
-
-        public void setLec(String lec) {
-            this.lec = lec;
-        }
-
-        public String getLab() {
-            return lab;
-        }
-
-        public void setLab(String lab) {
-            this.lab = lab;
-        }
-
-        public String getCredunits() {
-            return credunits;
-        }
-
-        public void setCredunits(String credunits) {
-            this.credunits = credunits;
-        }
-
-        //</editor-fold>
-    }
 
 }

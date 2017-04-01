@@ -23,7 +23,7 @@ public class DBSettings {
 
         }else{
             try {
-                f.createNewFile();
+                f.createNewFile()
             } catch (IOException e) {
                 e.printStackTrace();
             }

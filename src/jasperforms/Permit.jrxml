@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-03-31T08:08:50 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b7182a0f-a173-4632-9ee8-eba0761e193d">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgreDB"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="subjectsDataset" uuid="ebbe82a7-3097-45ab-9412-a3907af1abc6">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<parameter name="studid" class="java.lang.String"/>
+	<parameter name="name" class="java.lang.String"/>
+	<parameter name="yrlvl" class="java.lang.String"/>
+	<parameter name="sysem" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<queryString>
+		<![CDATA[select to_char(CURRENT_TIMESTAMP,'Month DD YYYY') as datenow]]>
+	</queryString>
+	<field name="datenow" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="110" splitType="Stretch">
+			<staticText>
+				<reportElement x="194" y="0" width="167" height="24" uuid="8e63efd1-227d-47e4-9231-fca7dd82649c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Republic of the Philippines]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="24" width="510" height="25" uuid="cf518e22-aa79-42c2-ad31-dc5f80866b7b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DAVAO ORIENTAL STATE COLLEGE OF SCIENCE AND TECHNOLOGY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="194" y="49" width="166" height="20" uuid="8f7aeb97-a33c-4b6c-9a3b-032a866e8117"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Mati, Davao Oriental]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="127" y="80" width="300" height="30" uuid="c5687bca-1467-4973-b9aa-4de9eea4797b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EXAMINATION PERMIT]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement x="8" y="9" width="100" height="19" uuid="79f87dc3-ee13-477b-b429-c98ea481a9fc"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Students Name:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="113" y="9" width="203" height="19" uuid="4073b3ef-1e25-453a-9734-e83d7c0eefcd"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="9" y="32" width="100" height="20" uuid="2b47c03e-15cd-45a9-829e-4e4df5ad89eb"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[ID number:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="319" y="9" width="100" height="19" uuid="9f2558f8-5a93-4a07-a7a6-7761261ad667"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Year Level:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="114" y="32" width="202" height="20" uuid="444d2f29-ddaa-4d2a-ba2a-69c701c3a035"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{studid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="427" y="5" width="122" height="23" uuid="b836155a-fae3-4c61-884f-38f0cff5196a"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{yrlvl}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="319" y="33" width="100" height="18" uuid="c6ec4e00-ac89-4af8-ae08-f5d5749f32af"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[S.Y / Semester:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="427" y="32" width="122" height="19" uuid="3879364c-53e8-4538-9063-8ead4f0ba28e"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{sysem}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="311" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="280" height="30" uuid="8c40d71a-20b7-4693-9153-de8baa991f45"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRELIM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="2" width="273" height="30" uuid="6b48b978-c74e-41eb-89d5-3b67f26f8369"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MIDTERM]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="0" y="32" width="260" height="200" uuid="37ae9ec7-4e61-433a-818b-90c1b4bfc4c3">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="subjectsDataset" uuid="be9949aa-f142-4f28-a8c1-a027f1e44222">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="40" uuid="66835a64-f8de-46d4-815b-19c8ffa5358f">
+						<jr:tableHeader style="Table_TH" height="30"/>
+						<jr:tableFooter style="Table_TH" height="30"/>
+						<jr:columnHeader style="Table_CH" height="30"/>
+						<jr:columnFooter style="Table_CH" height="30"/>
+						<jr:detailCell style="Table_TD" height="30"/>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<textField>
+				<reportElement x="371" y="116" width="100" height="30" uuid="d916a5ca-2166-4854-b66b-98eddf35b4eb"/>
+				<textFieldExpression><![CDATA[$F{datenow}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="124" splitType="Stretch">
+			<staticText>
+				<reportElement x="294" y="25" width="127" height="20" uuid="5635cc07-bc27-4222-89f7-d6b13953b626"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Remaining Balnace:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="428" y="1" width="126" height="20" uuid="bbd52142-8a8f-4a5f-81ae-0caf0653c2c5"/>
+				<textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="294" y="49" width="127" height="20" uuid="09612a96-b1c0-4506-980f-54e3b19f85a1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Account Verified by:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="427" y="25" width="126" height="20" uuid="fd232122-a1c3-41a6-b967-a026a95df338"/>
+				<textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="290" y="0" width="132" height="20" uuid="ff81b16c-d1fc-4700-b9d7-2943743eabb0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Minimum amount payable:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="428" y="95" width="131" height="1" uuid="a9877a97-c4c0-4b75-80d8-f86461bd74f0"/>
+			</line>
+			<staticText>
+				<reportElement x="4" y="25" width="127" height="20" uuid="488825bf-645f-4d64-945c-1c7dd2cad04f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Remaining Balnace:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="138" y="1" width="126" height="20" uuid="9e4aec88-e768-4d0f-a26d-0f4d96e82ff8"/>
+				<textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="4" y="49" width="127" height="20" uuid="6d47e184-fd39-45e6-967f-1dff6c4af090"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Account Verified by:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="137" y="25" width="126" height="20" uuid="5347048a-2e10-42b0-a6b3-5fe14ebc3cf3"/>
+				<textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="132" height="20" uuid="de79f81a-60a5-4b13-bc6c-88daba173eb7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Minimum amount payable:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="138" y="95" width="131" height="1" uuid="4a389ea3-f078-4cfb-9d01-3f55d28a0043"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="98" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="4" width="100" height="20" uuid="82210b4d-8264-4c46-a80b-f6c1ed101c4c"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Issued on : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="555" height="39" uuid="8b3f4374-99e5-4fae-bf00-6ecf51d2b4b0"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Note:  	This permit will be used for both Prelim and Midterm Exams. Have this signed by the 		accountant at each exam period . Fees apply for lost permit]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="109" y="5" width="271" height="20" uuid="4d72ddd6-bcd5-409b-a51e-eda2b4a0f326"/>
+				<textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

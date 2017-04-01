@@ -14,7 +14,7 @@ public class JFrameHelper {
     }
 
     public static void show(JFrame frame, JPanel pnl, String title, boolean maximized){
-        frame = new JFrame(title);
+        frame.setTitle(title);
         if(maximized)
             frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setContentPane(pnl);

@@ -12,4 +12,9 @@ public class Queries {
     public static String getAssessmentCertificateOfRegistration(String studid, String sy, String sem){
         return String.format(ASSESSMENT_CERTIFICATE_OF_REGISTRATION,studid,sy,sem);
     }
+
+
+    public static String getStudFullName(){return "SELECT fullname from srgb.stufullnames;";}
+    public static String getCurrUser(){return "SELECT current_user";}
+
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
-<!-- 2017-03-26T14:58:24 -->
+<!-- 2017-03-31T03:57:05 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0c453be4-2d5d-4010-a59c-e8f356bf2d85">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgreDB"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
@@ -99,10 +99,15 @@
 	<parameter name="feesDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource">
 		<parameterDescription><![CDATA[]]></parameterDescription>
 	</parameter>
+	<parameter name="remainingbalance" class="java.lang.Double">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<parameter name="scholarship" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[SELECT CURRENT_DATE]]>
+		<![CDATA[SELECT to_char(CURRENT_DATE,'MonthDD   YYYY') as date]]>
 	</queryString>
-	<field name="date" class="java.sql.Date"/>
+	<field name="date" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -202,10 +207,22 @@
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$P{sysem}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="320" y="62" width="100" height="18" uuid="31be4c0e-8c3b-47ac-bb4a-26960cd2c5a2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Scholarship:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="422" y="62" width="133" height="19" uuid="106f1f8a-02f5-46fe-ac2b-fdd6c0a5993f"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{scholarship}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<detail>
-		<band height="351" splitType="Stretch">
+		<band height="325" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="0" width="250" height="30" uuid="72eab033-f883-45a1-b6ec-7a07ee0b45ba"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -398,16 +415,16 @@
 		</band>
 	</detail>
 	<pageFooter>
-		<band height="90" splitType="Stretch">
+		<band height="120" splitType="Stretch">
 			<staticText>
-				<reportElement x="250" y="0" width="100" height="30" uuid="5bce260c-7dee-4ea2-985e-9e24d36b5e11"/>
+				<reportElement x="270" y="38" width="100" height="30" uuid="5bce260c-7dee-4ea2-985e-9e24d36b5e11"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Prepared by:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="359" y="40" width="160" height="30" uuid="f8dbdc36-6a35-4475-82fd-0c67d0c4f970"/>
+				<reportElement x="379" y="79" width="160" height="30" uuid="f8dbdc36-6a35-4475-82fd-0c67d0c4f970"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 				</box>
@@ -415,6 +432,20 @@
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Student Account In-charge]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="385" y="0" width="154" height="30" uuid="aa23fe3f-a01a-45b0-826c-18256a8e05ba"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{remainingbalance}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="250" y="0" width="120" height="30" uuid="d55e7c9b-ac1f-4307-941d-f7d17c008cb8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Remaning Balance:]]></text>
 			</staticText>
 		</band>
 	</pageFooter>

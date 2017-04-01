@@ -14,6 +14,8 @@ public class Student {
     private AssessmentSubjects subjects;
     private AssessmentFees fees;
 
+    private Double remainingBalance;
+
     public Student(String studid){
         this.studid = studid;
         fetchData();
@@ -61,6 +63,7 @@ public class Student {
         sem = "Term 1";
         sy = "2016 - 2017";
         date = "8/3/2016";
+        remainingBalance = 0.00D;
         printBasicInfo();
 
 
@@ -97,6 +100,14 @@ public class Student {
 
     public String getDate(){
         return date;
+    }
+
+    public Double getRemainingBalance() {
+        return remainingBalance;
+    }
+
+    public void setRemainingBalance(Double remainingBalance) {
+        this.remainingBalance = remainingBalance;
     }
     //</editor-fold>
 

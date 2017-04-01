@@ -133,15 +133,15 @@ public class Assessment {
             JasperReport jr = JasperCompileManager.compileReport(sourceFile);
             jp = JasperFillManager.fillReport(jr, m, DB.getConnection());
         }
-        JRViewer pnlAssessmentReport = new JRViewer(jp);
+        JRViewer pnlReport= new JRViewer(jp);
         SwingUtilities.invokeLater(()-> {
-            for(int i=pnlAssessmentView.getComponentCount()-1;i>=0;i--){
-                pnlAssessmentView.remove(i);
+            for(int i=pnl.getComponentCount()-1;i>=0;i--){
+                pnl.remove(i);
             }
 
-            pnlAssessmentView.add(pnl);
-            pnlAssessmentView.updateUI();
-            pnlAssessmentView.repaint();
+            pnl.add(pnlReport);
+            pnl.updateUI();
+            pnl.repaint();
             running = false;
         });
 

@@ -2,34 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44575bb7-fcbf-4d2f-8e8c-ce86d23fcbcd" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/EditAssessmentView.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/classess/.Student.java.swp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/classess/Queries.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/forms/EditAssessmentView.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/forms/EditAssessmentView.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/billingsystem/classess/Queries.class" afterPath="$PROJECT_DIR$/out/production/billingsystem/classess/Queries.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/billingsystem/classess/Student.class" afterPath="$PROJECT_DIR$/out/production/billingsystem/classess/Student.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/classess/.Student.java.swp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/billingsystem/classess/Queries.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment$1.class" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment$2.class" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment$3.class" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment.class" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/Assessment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/Login.class" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/Login.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/billingsystem/utils/JFrameHelper.class" afterPath="$PROJECT_DIR$/out/production/billingsystem/utils/JFrameHelper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/billingsystem/utils/Queries.class" afterPath="$PROJECT_DIR$/out/production/billingsystem/utils/Queries.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/dpunk12.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/dpunk12.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/billingsystem/forms/EditAssessment.class" afterPath="$PROJECT_DIR$/out/production/billingsystem/forms/EditAssessment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/billingsystem/jasperforms/COB.jasper" afterPath="$PROJECT_DIR$/out/production/billingsystem/jasperforms/COB.jasper" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/billingsystem/jasperforms/COB.jrxml" afterPath="$PROJECT_DIR$/out/production/billingsystem/jasperforms/COB.jrxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/billingsystem/jasperforms/Permit.jrxml" afterPath="$PROJECT_DIR$/out/production/billingsystem/jasperforms/Permit.jrxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classess/Student.java" afterPath="$PROJECT_DIR$/src/classess/Student.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/forms/Assessment.form" afterPath="$PROJECT_DIR$/src/forms/Assessment.form" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/forms/Assessment.java" afterPath="$PROJECT_DIR$/src/forms/Assessment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/forms/DBSettings.java" afterPath="$PROJECT_DIR$/src/forms/DBSettings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jasperforms/COB.jasper" afterPath="$PROJECT_DIR$/src/jasperforms/COB.jasper" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jasperforms/COB.jrxml" afterPath="$PROJECT_DIR$/src/jasperforms/COB.jrxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jasperforms/Permit.jrxml" afterPath="$PROJECT_DIR$/src/jasperforms/Permit.jrxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/JFrameHelper.java" afterPath="$PROJECT_DIR$/src/utils/JFrameHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/Queries.java" afterPath="$PROJECT_DIR$/src/utils/Queries.java" />
     </list>
     <ignored path="billingsystem.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,17 +36,17 @@
     <favorites_list name="billingsystem" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Assessment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/forms/Assessment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="56" column="14" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
+            <state relative-caret-position="218">
+              <caret line="137" column="25" selection-start-line="137" selection-start-column="25" selection-end-line="137" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#listeners#0;class#Assessment#0" expanded="false" />
                 <element signature="method#init#0;class#Assessment#0" expanded="false" />
-                <element signature="e#9998#10060#0" expanded="false" />
+                <element signature="e#9923#9985#0" expanded="false" />
                 <element signature="method#setName#0;class#Assessment#0" expanded="false" />
               </folding>
             </state>
@@ -201,8 +182,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -314,6 +293,8 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -976,11 +957,12 @@
       <workItem from="1491046081058" duration="2649000" />
       <workItem from="1491074291084" duration="1089000" />
       <workItem from="1491076594599" duration="3986000" />
+      <workItem from="1491081441936" duration="185000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="372494000" />
+    <option name="totallyTimeSpent" value="372679000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1003,14 +985,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3264095" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3264095" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32789317" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2284041" sideWeight="0.49217004" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32789317" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2496329" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2489019" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1022,6 +1003,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32789317" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1079,13 +1061,13 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/forms/SummaryAssessmentSy.form">
+      <provider editor-type-id="ui-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="ui-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/changestodb.txt">
@@ -1131,13 +1113,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/forms/Fees.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/forms/Fees.java">
@@ -1148,13 +1130,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/forms/DBSettings.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_102/src.zip!/javax/swing/plaf/basic/BasicButtonListener.java">
@@ -1311,33 +1293,31 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/forms/Assessment.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/Queries.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/forms/EditAssessment.form">
+      <provider editor-type-id="ui-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="ui-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/forms/EditAssessment.java">
@@ -1399,14 +1379,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classess/Queries.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classess/Queries.java" />
     <entry file="file://$PROJECT_DIR$/src/classess/Student.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1258">
@@ -1461,13 +1434,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/forms/Assessment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="56" column="14" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
+        <state relative-caret-position="218">
+          <caret line="137" column="25" selection-start-line="137" selection-start-column="25" selection-end-line="137" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#listeners#0;class#Assessment#0" expanded="false" />
             <element signature="method#init#0;class#Assessment#0" expanded="false" />
-            <element signature="e#9998#10060#0" expanded="false" />
+            <element signature="e#9923#9985#0" expanded="false" />
             <element signature="method#setName#0;class#Assessment#0" expanded="false" />
           </folding>
         </state>

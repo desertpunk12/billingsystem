@@ -136,7 +136,7 @@
                   </grid>
                 </constraints>
               </hspacer>
-              <tabbedpane id="53adc" binding="tabPreviousAccounts">
+              <tabbedpane id="53adc">
                 <constraints>
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="200" height="200"/>
@@ -215,7 +215,7 @@
                   <text value="Submit"/>
                 </properties>
               </component>
-              <tabbedpane id="b53f" binding="tabbedPane1" default-binding="true">
+              <tabbedpane id="b53f" default-binding="true">
                 <constraints>
                   <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="200" height="200"/>

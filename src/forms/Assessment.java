@@ -3,8 +3,10 @@ package forms;
 import classess.Student;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.fill.JRFillInterruptedException;
+import net.sf.jasperreports.engine.json.expression.member.ObjectConstructionExpression;
 import net.sf.jasperreports.swing.JRViewer;
 import utils.DB;
+
 import utils.JFrameHelper;
 
 import javax.swing.*;
@@ -24,14 +26,12 @@ public class Assessment {
     private JPanel pnlMain;
     private JSplitPane splitPane;
     private JLabel lblName;
-    private JTabbedPane tabPreviousAccounts;
     private JFormattedTextField txtSearchStudentIdNumber;
     private JButton btnSearchStudentIdNumber;
     private JButton btnSearchStudentByName;
     private JLabel btnLogout;
     private JButton btnFees;
     private JPanel pnlSummary;
-    private JTabbedPane tabbedPane1;
     private JPanel pnlAssessmentView;
     private JButton btnEditAssessmentView;
     private JScrollPane scrlSummary;
@@ -50,7 +50,6 @@ public class Assessment {
     private volatile boolean running = false;
     private volatile String studid;
 
-    private JLabel lblLoading;
     public Assessment(boolean isAdmin) {
         this.isAdmin = isAdmin;
         System.out.println(isAdmin);
@@ -75,7 +74,6 @@ public class Assessment {
             public void mouseEntered(MouseEvent e) {
                 btnLogout.setForeground(Color.RED);
             }
-
 
             @Override
             public void mouseExited(MouseEvent e){
@@ -125,12 +123,12 @@ public class Assessment {
     }
 
     //<editor-fold defaultstate="collapsed" desc="Assessing">
-     private synchronized void viewReport(JPanel pnl, String sourceFile, HashMap m, boolean compiled) throws JRFillInterruptedException,SQLException,JRException {
+     private synchronized void viewReport(JPanel pnl, String srcFile, HashMap<String,Object> m, boolean compiled) throws JRFillInterruptedException,SQLException,JRException {
         JasperPrint jp;
-        if (compiled){
-            jp = JasperFillManager.fillReport(sourceFile, m, DB.getConnection());
-        }else{
-            JasperReport jr = JasperCompileManager.compileReport(sourceFile);
+        if (compiled)
+            jp = JasperFillManager.fillReport(srcFile, m, DB.getConnection());
+        else{
+            JasperReport jr = JasperCompileManager.compileReport(srcFile);
             jp = JasperFillManager.fillReport(jr, m, DB.getConnection());
         }
         JRViewer pnlReport= new JRViewer(jp);
@@ -148,12 +146,11 @@ public class Assessment {
     }
 
 
-    public synchronized void viewAssessmentReport(String studid) throws JRFillInterruptedException{
+    private synchronized void viewAssessmentReport() throws JRFillInterruptedException{
         try {
             running = true;
-            String sourceFile = "src/jasperforms/COB.jrxml";
-            String sourceFileCompiled = "src/jasperforms/COB.jasper";
-            HashMap m = new HashMap();
+            String srcFileCompiled = "src/jasperforms/COB.jasper";
+            HashMap<String,Object> m = new HashMap<>();
             m.put("name",currentStudent.getFullName());
             m.put("studid",currentStudent.getStudId());
             m.put("yrandcourse","Year "+currentStudent.getYrlvl()+" in "+currentStudent.getCourse());
@@ -164,19 +161,18 @@ public class Assessment {
             m.put("remainingbalance",currentStudent.getRemainingBalance());
             m.put("scholarship",currentStudent.getScholarship());
 
-            viewReport(pnlAssessmentView,sourceFileCompiled,m,true);
+            viewReport(pnlAssessmentView,srcFileCompiled,m,true);
         } catch (JRException | SQLException e) {
             e.printStackTrace();
         }
     }
 
 
-    public synchronized void viewPermitReport(String studid) throws JRFillInterruptedException{
+    private synchronized void viewPermitReport() throws JRFillInterruptedException{
         try {
             running = true;
-            String sourceFile = "src/jasperforms/Permit.jrxml";
-            String sourceFileCompiled = "src/jasperforms/Permit.jasper";
-            HashMap m = new HashMap();
+            String srcFileCompiled = "src/jasperforms/Permit.jasper";
+            HashMap<String,Object> m = new HashMap<>();
             m.put("name",currentStudent.getFullName());
             m.put("studid",currentStudent.getStudId());
             m.put("yrlvl",currentStudent.getYrlvl());
@@ -187,18 +183,17 @@ public class Assessment {
             m.put("minamountpayable","");
 
 
-            viewReport(pnlPermitView,sourceFileCompiled,m,true);
+            viewReport(pnlPermitView,srcFileCompiled,m,true);
         } catch (JRException | SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public synchronized void viewClearanceReport(String studid) throws JRFillInterruptedException{
+    private synchronized void viewClearanceReport() throws JRFillInterruptedException{
          try {
             running = true;
-            String sourceFile = "src/jasperforms/Clearance.jrxml";
-            String sourceFileCompiled = "src/jasperforms/Clearance.jasper";
-            HashMap m = new HashMap();
+            String srcFileCompiled = "src/jasperforms/Clearance.jasper";
+            HashMap<String,Object> m = new HashMap<>();
             m.put("name",currentStudent.getFullName());
             m.put("studid",currentStudent.getStudId());
             m.put("yrlvl",currentStudent.getYrlvl());
@@ -208,7 +203,7 @@ public class Assessment {
             m.put("scholarship",currentStudent.getScholarship());
             m.put("minamountpayable","");
 
-            viewReport(pnlClearanceView,sourceFileCompiled,m,true);
+            viewReport(pnlClearanceView,srcFileCompiled,m,true);
         } catch (JRException | SQLException e) {
             e.printStackTrace();
         }
@@ -235,13 +230,13 @@ public class Assessment {
             running = false;
         }
 
-        thrdAssessment = new Thread(() -> {try{viewAssessmentReport(studid);}catch (JRFillInterruptedException e){System.out.println("Cancelled jasper view request!");}});
+        thrdAssessment = new Thread(() -> {try{viewAssessmentReport();}catch (JRFillInterruptedException e){System.out.println("Cancelled jasper view request!");}});
         thrdAssessment.start();
 
-        thrdPermit = new Thread(() -> {try{viewPermitReport(studid);}catch (JRFillInterruptedException e){System.out.println("Cancelled jasper view request!");}});
+        thrdPermit = new Thread(() -> {try{viewPermitReport();}catch (JRFillInterruptedException e){System.out.println("Cancelled jasper view request!");}});
         thrdPermit.start();
 
-        thrdClearance= new Thread(() -> {try{viewClearanceReport(studid);}catch (JRFillInterruptedException e){System.out.println("Cancelled jasper view request!");}});
+        thrdClearance= new Thread(() -> {try{viewClearanceReport();}catch (JRFillInterruptedException e){System.out.println("Cancelled jasper view request!");}});
         thrdClearance.start();
 
         //TODO: removthis shit
@@ -250,12 +245,13 @@ public class Assessment {
 
     private void addLoading(JPanel pnl){
          if(!running&& pnl.getComponentCount()<2) {
-            lblLoading = new JLabel();
-            lblLoading.setText("Loading Report View . . .");
-            pnl.add(lblLoading);
-            pnl.updateUI();
-            pnl.repaint();
-        }
+
+             JLabel lblLoading = new JLabel();
+             lblLoading.setText("Loading Report View . . .");
+             pnl.add(lblLoading);
+             pnl.updateUI();
+             pnl.repaint();
+         }
     }
 
     private void showSummaryAssessment(){
@@ -292,7 +288,7 @@ public class Assessment {
     }//Sets the name of the current user
 
 
-    public void show(){
+    void show(){
         JFrameHelper.show(frame,pnlMain,"Students Billing System of DOSCST",true);
         SwingUtilities.invokeLater(() -> {
             try{

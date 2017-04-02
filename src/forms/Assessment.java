@@ -116,7 +116,7 @@ public class Assessment {
             @Override
             public void componentResized(ComponentEvent e) {
                 super.componentResized(e);
-                splitPane.setDividerLocation(0.6);
+                splitPane.setDividerLocation(0.75);
             }
         });
 
@@ -132,6 +132,7 @@ public class Assessment {
             jp = JasperFillManager.fillReport(jr, m, DB.getConnection());
         }
         JRViewer pnlReport= new JRViewer(jp);
+        pnlReport.setZoomRatio(0.75f);
         SwingUtilities.invokeLater(()-> {
             for(int i=pnl.getComponentCount()-1;i>=0;i--){
                 pnl.remove(i);

@@ -6,8 +6,12 @@ package models;
 public class SummaryAssessment implements Model{
 
 
+    private SchoolYear schoolYear;
+
     @Override
     public void fetch() {
+        //Get SchoolYears
+        
 
     }
 }

@@ -5,8 +5,8 @@ package models;
  */
 public class Clearance implements Model{
 
-    private Sign[] signs;
     private Subject[] subjects;
+    private Sign[] signs;
     private double remainingBalance;
 
     @Override

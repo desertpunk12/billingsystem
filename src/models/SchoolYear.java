@@ -1,19 +1,33 @@
 package models;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 /**
  * Created by dpunk12 on 5/3/2017.
  */
-public class SchoolYear implements Model{
+public class SchoolYear {
 
-    private Sem[] sems;
+    private ArrayList<Sem> sems;
     private String schoolYear;
 
     public SchoolYear(String schoolYear) {
         this.schoolYear = schoolYear;
     }
 
-    @Override
-    public void fetch() {
+    public ArrayList<Sem> getSems() {
+        return sems;
+    }
 
+    public void setSems(ArrayList<Sem> sems) {
+        this.sems = sems;
+    }
+
+    public String getSchoolYear() {
+        return schoolYear;
+    }
+
+    public void setSchoolYear(String schoolYear) {
+        this.schoolYear = schoolYear;
     }
 }

@@ -37,6 +37,7 @@ public class Assessment {
     private JScrollPane scrlSummary;
     private JPanel pnlPermitView;
     private JPanel pnlClearanceView;
+    private JButton printButton;
     //</editor-fold>
 
     private boolean isAdmin;

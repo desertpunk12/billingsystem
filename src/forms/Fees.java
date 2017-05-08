@@ -17,8 +17,12 @@ public class Fees {
 
     private JFrame frame;
 
+    public Fees(){
+        frame = new JFrame();
+    }
 
     public void show(){
-        JFrameHelper.show(frame,pnlMain,"Fess",true);
+        SwingUtilities.invokeLater(()->JFrameHelper.show(frame,pnlMain,"Fess",true));
+
     }
 }

@@ -7,10 +7,7 @@ public class Student {
 
     private String studid, fname,lname,scholarship,course,yrlvl;
 
-    private String sy;
-    private String sem;
-    private String date;
-
+    private String sy,sem,date;
     private AssessmentSubjects subjects;
     private AssessmentFees fees;
 

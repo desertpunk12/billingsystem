@@ -33,22 +33,12 @@ public class SummaryAssessmentSy {
         SummaryAssessmentSem sssem2 = new SummaryAssessmentSem(schoolYear,'2');
         SummaryAssessmentSem sssem3 = new SummaryAssessmentSem(schoolYear,'1');
 
-        DefaultTableModel model = new DefaultTableModel(new String[][]{
-                {"Wingo","Ongiw"},
-                {"Hello","Heeelo"}
-        },new String[]{"Hello","World"});
-
-        sssem.setTblDataModel(model);
-        sssem2.setTblDataModel(model);
-        sssem3.setTblDataModel(model);
-
         sssem.attach(pnlMain);
         sssem2.attach(pnlMain);
         sssem3.attach(pnlMain);
     }
 
     public void attach(JPanel pnl){
-
         SwingUtilities.invokeLater(()->{
             pnl.setLayout(new BoxLayout(pnl,BoxLayout.PAGE_AXIS));
             pnl.add(pnlMain);

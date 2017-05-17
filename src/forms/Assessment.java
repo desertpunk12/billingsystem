@@ -38,6 +38,7 @@ public class Assessment {
     private JPanel pnlPermitView;
     private JPanel pnlClearanceView;
     private JButton printButton;
+    private JButton prevousStudentButton;
     //</editor-fold>
 
     private boolean isAdmin;

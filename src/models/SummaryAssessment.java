@@ -50,34 +50,37 @@ public class SummaryAssessment {
         }
     }
 
+
+    // Process Query for SchoolYear and Sem(totalpay,totalbalance) classess
     private void processQuery(String query) throws SQLException {
         ResultSet rs = DB.query(query);
+
         int columnCount = rs.getMetaData().getColumnCount();
-        String[] data = new String[columnCount];
         String currentSY = null;
+
         while(rs.next()){
+            String[] columnData = new String[columnCount];
             for (int i = 0; i < columnCount; i++) {
-                data[i] = rs.getString(i);
+                columnData[i] = rs.getString(i);
             }
 
-            //Appointing data to variables
-            String sy = data[0];
-            char sem = data[1].charAt(0);
-            double totalBalance = Double.parseDouble(data[3]);
-            double totalPayed = Double.parseDouble(data[2]);
+            //Appointing columnData to variables
+            String sy = columnData[0];
+            char sem = columnData[1].charAt(0);
+            double totalBalance = Double.parseDouble(columnData[3]);
+            double totalPayed = Double.parseDouble(columnData[2]);
 
-            int currentSYIndex = -1;
 
-            //Assigning variables data to models
-            //Also adds new SchoolYear if the current query row sy is different fro the currentSY
+            //Assigning variables columnData to models
+            //Also adds new SchoolYear if the current query row sy is different from the currentSY
+            //Check if the current row sy is new
             if(currentSY == null || currentSY.equals("") || currentSY != sy) {
                 currentSY = sy;
                 schoolYears.add(new SchoolYear(sy));
-                currentSYIndex++;
             }
 
             //Adds new Sem
-            schoolYears.get(currentSYIndex).getSems().add(new Sem(sem,totalBalance,totalPayed));
+            schoolYears.get(schoolYears.size()-1).getSems().add(new Sem(sem,totalBalance,totalPayed));
 
 
         }

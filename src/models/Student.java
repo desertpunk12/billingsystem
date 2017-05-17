@@ -5,13 +5,27 @@ package models;
  */
 public class Student {
 
+    private SummaryAssessment summaryAssessment;//checked DONE???
+
+    //Rerorts
     private Assessment assessment;
-    private SummaryAssessment summaryAssessment;//checked
     private Permit permit;
     private Clearance clearance;
 
+    private String firstName;
+    private String middleName;
+    private String lastName;
+
+    private String idNumber;
 
 
+    public String getFullName(){
+        return firstName+" "+middleName.toUpperCase().charAt(0)+" "+lastName;
+    }
+
+    public String getIdNumber(){
+        return idNumber;
+    }
 
 
 }

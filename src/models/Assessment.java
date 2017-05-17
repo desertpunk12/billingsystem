@@ -10,6 +10,7 @@ public class Assessment {
     private double remainingBalance;
 
     public void fetch() {
+
     }
 
 }

@@ -13,6 +13,7 @@ public class SchoolYear {
 
     public SchoolYear(String schoolYear) {
         this.schoolYear = schoolYear;
+        sems = new ArrayList<>();
     }
 
     public ArrayList<Sem> getSems() {

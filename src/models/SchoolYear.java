@@ -31,4 +31,9 @@ public class SchoolYear {
     public void setSchoolYear(String schoolYear) {
         this.schoolYear = schoolYear;
     }
+
+    public Sem getRecentSem(){
+        return sems.get(sems.size()-1);
+    }
+
 }

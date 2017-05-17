@@ -80,9 +80,13 @@ public class SummaryAssessment {
             }
 
             //Adds new Sem
-            schoolYears.get(schoolYears.size()-1).getSems().add(new Sem(sem,totalBalance,totalPayed));
+            getRecentSchoolYear().getSems().add(new Sem(sem,totalBalance,totalPayed));
 
 
         }
+    }
+
+    public SchoolYear getRecentSchoolYear(){
+        return schoolYears.get(schoolYears.size()-1);
     }
 }

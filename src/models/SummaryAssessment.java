@@ -13,33 +13,36 @@ public class SummaryAssessment {
 
 
     private ArrayList<SchoolYear> schoolYears;
+    private String studid;
 
-    public SummaryAssessment() {
+    public SummaryAssessment(String studid) {
+        this.studid=studid;
         schoolYears = new ArrayList<>();
+        fetch();
     }
 
-    public void fetch(int studid) {
-        //Get SchoolYears
+    public void fetch() {
+        //Get SchoolYearss
         String query = "SELECT sy,sem, totalpay,totalbalance FROM\n" +
                 "  (SELECT sy,sem,(total_pay+total_orbrkdwn) as totalpay FROM\n" +
                 "  (SELECT sy,sem,orno,sum((coalesce(regfee,0.00)+coalesce(labfee,0.00)+coalesce(compfee,0.00)+coalesce(libfee,0.00)+coalesce(athlfee,0.00)+coalesce(medfee,0.00)+coalesce(spubfee,0.00)+coalesce(sgovfee,0.00)+coalesce(studentfee,0.00)+coalesce(tuitionfee,0.00)+coalesce(latefee,0.00)+coalesce(idfee,0.00)+coalesce(guidancefee,0.00)+coalesce(facilitiesfee,0.00))) as total_pay\n" +
-                "                  FROM payment\n" +
+                "                  FROM srgb.payment\n" +
                 "                  WHERE paycode='CE' AND studid='"+studid+"' GROUP BY sy,sem,orno) as pp\n" +
                 "  LEFT JOIN\n" +
                 "  (SELECT sy,sem,orno,sum(coalesce(amount,0.00)) as total_orbrkdwn\n" +
-                "                  FROM or_brkdown LEFT JOIN payment USING(orno)\n" +
-                "                  WHERE or_brkdown.studid = '"+studid+"' GROUP BY sy,sem,orno) as oo USING(sy,sem,orno)) as ppp\n" +
+                "                  FROM srgb.or_brkdown LEFT JOIN srgb.payment USING(orno)\n" +
+                "                  WHERE srgb.or_brkdown.studid = '"+studid+"' GROUP BY sy,sem,orno) as oo USING(sy,sem,orno)) as ppp\n" +
                 "LEFT JOIN (SELECT sy,sem,(total_assess-(total_pay+total_orbrkdwn)) as totalbalance from\n" +
                 "  (SELECT sy,sem,studid,orno,sum((coalesce(regfee,0.00)+coalesce(labfee,0.00)+coalesce(compfee,0.00)+coalesce(libfee,0.00)+coalesce(athlfee,0.00)+coalesce(medfee,0.00)+coalesce(spubfee,0.00)+coalesce(sgovfee,0.00)+coalesce(studentfee,0.00)+coalesce(tuitionfee,0.00)+coalesce(latefee,0.00)+coalesce(idfee,0.00)+coalesce(guidancefee,0.00)+coalesce(facilitiesfee,0.00))) as total_pay\n" +
-                "                  FROM payment\n" +
+                "                  FROM srgb.payment\n" +
                 "                  WHERE paycode='CE' AND studid='"+studid+"' GROUP BY orno) as pp\n" +
                 "  LEFT JOIN\n" +
-                "  (SELECT sy,sem,or_brkdown.studid,orno,sum(coalesce(amount,0.00)) as total_orbrkdwn\n" +
-                "                  FROM or_brkdown LEFT JOIN payment USING(orno)\n" +
-                "                  WHERE or_brkdown.studid = '"+studid+"' GROUP BY sy,sem,or_brkdown.studid,orno) as oo USING(sy,sem,studid)\n" +
+                "  (SELECT sy,sem,srgb.or_brkdown.studid,orno,sum(coalesce(amount,0.00)) as total_orbrkdwn\n" +
+                "                  FROM srgb.or_brkdown LEFT JOIN srgb.payment USING(orno)\n" +
+                "                  WHERE srgb.or_brkdown.studid = '"+studid+"' GROUP BY sy,sem,srgb.or_brkdown.studid,orno) as oo USING(sy,sem,studid)\n" +
                 "  LEFT JOIN\n" +
                 "  (SELECT sy,sem,studid,(coalesce(regfee,0.00)+coalesce(labfee,0.00)+coalesce(compfee,0.00)+coalesce(libfee,0.00)+coalesce(athlfee,0.00)+coalesce(medfee,0.00)+coalesce(spubfee,0.00)+coalesce(sgovfee,0.00)+coalesce(studentfee,0.00)+coalesce(tuitionfee,0.00)+coalesce(latefee,0.00)+coalesce(idfee,0.00)+coalesce(guidancefee,0.00)+coalesce(facilitiesfee,0.00)) as total_assess\n" +
-                "                  FROM assessment) as aa USING (sy,sem,studid)) as bbb USING(sy,sem);";
+                "                  FROM srgb.assessment) as aa USING (sy,sem,studid)) as bbb USING(sy,sem);";
 
         System.out.println(query);
 
@@ -50,6 +53,9 @@ public class SummaryAssessment {
         }
     }
 
+    public ArrayList<SchoolYear> getSchoolYears(){
+        return schoolYears;
+    }
 
     // Process Query for SchoolYear and Sem(totalpay,totalbalance) classess
     private void processQuery(String query) throws SQLException {

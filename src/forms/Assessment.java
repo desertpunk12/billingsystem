@@ -1,9 +1,11 @@
 package forms;
 
 import classess.Student;
+import models.SchoolYear;
+import models.Sem;
+import models.SummaryAssessment;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.fill.JRFillInterruptedException;
-import net.sf.jasperreports.engine.json.expression.member.ObjectConstructionExpression;
 import net.sf.jasperreports.swing.JRViewer;
 import utils.DB;
 
@@ -33,12 +35,10 @@ public class Assessment {
     private JButton btnFees;
     private JPanel pnlSummary;
     private JPanel pnlAssessmentView;
-    private JButton btnEditAssessmentView;
+    private JButton btnEditAssessment;
     private JScrollPane scrlSummary;
     private JPanel pnlPermitView;
     private JPanel pnlClearanceView;
-    private JButton printButton;
-    private JButton prevousStudentButton;
     //</editor-fold>
 
     private boolean isAdmin;
@@ -52,18 +52,21 @@ public class Assessment {
     private volatile boolean running = false;
     private volatile String studid;
 
+
+    private SummaryAssessment smryAss;
+
     public Assessment(boolean isAdmin) {
         this.isAdmin = isAdmin;
         System.out.println(isAdmin);
         init();
         listeners();
-        btnSearchStudentByName.setFocusable(false);//should change this latur
+//        btnSearchStudentByName.setFocusable(false);//should change this latur
         btnFees.setFocusable(false);//should change this latur
     }
 
 
     private void listeners(){
-        btnEditAssessmentView.addActionListener((e)->{
+        btnEditAssessment.addActionListener((e)->{
             EditAssessment editView = new EditAssessment();
             editView.show();
         });
@@ -89,17 +92,17 @@ public class Assessment {
 
         });
 
-        btnSearchStudentByName.addActionListener(e -> {
-
-            SearchStudentByName ssbn = new SearchStudentByName(txtSearchStudentIdNumber);
-            JFrame frame = new JFrame("Search Student By Name");
-            frame.setContentPane(ssbn.getMainPanel());
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frame.pack();
-            frame.setLocationRelativeTo(null);
-            frame.setVisible(true);
-
-        });
+//        btnSearchStudentByName.addActionListener(e -> {
+//
+//            SearchStudentByName ssbn = new SearchStudentByName(txtSearchStudentIdNumber);
+//            JFrame frame = new JFrame("Search Student By Name");
+//            frame.setContentPane(ssbn.getMainPanel());
+//            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//            frame.pack();
+//            frame.setLocationRelativeTo(null);
+//            frame.setVisible(true);
+//
+//        });
 
         txtSearchStudentIdNumber.addKeyListener(new KeyAdapter() {
             @Override
@@ -232,7 +235,7 @@ public class Assessment {
         thrdClearance.start();
 
         //TODO: removthis shit
-        showSummaryAssessment();
+        showSummaryAssessment(studid);
     }
 
     private void addLoading(JPanel pnl){
@@ -246,10 +249,16 @@ public class Assessment {
          }
     }
 
-    private void showSummaryAssessment(){
-        SummaryAssessmentSy sssy = new SummaryAssessmentSy("2013 - 2014");
+    private void showSummaryAssessment(String studid){
+        SummaryAssessment summaryAssessment = new SummaryAssessment(studid);
+        for(SchoolYear schoolYear : summaryAssessment.getSchoolYears()) {
+            SummaryAssessmentSy sssy = new SummaryAssessmentSy(schoolYear.getSchoolYear());
+            sssy.attach(pnlSummary);
+            for(Sem sem: schoolYear.getSems()){
+                sssy.addSem(sem.getSem());
+            }
 
-        sssy.attach(pnlSummary);
+        }
     }
 
     //</editor-fold>

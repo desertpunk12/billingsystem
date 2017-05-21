@@ -1,7 +1,11 @@
 package utils;
 
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import java.lang.reflect.*;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  * Created by dpunk12 on 10/28/2016.
@@ -57,18 +61,20 @@ public class DB {
     }
 
     public static ResultSet query(String query, boolean isUpdate) throws SQLException {
+        ResultSet rs = null;
         Statement stmnt = getConnection().createStatement();
         System.out.println("Executing query: "+query);
-        if(isUpdate)
+        if(isUpdate) {
             stmnt.executeUpdate(query);
-        else
-            return stmnt.executeQuery(query);
+            System.out.println("Successfully Executed Update Query!");
+        }else {
+            rs = stmnt.executeQuery(query);
+            System.out.println("Successfully Executed Query!");
+        }
 
-        stmnt.close();
         close();
 
-
-        return null;
+        return rs;
     }
 
 //    public static String[] query(String query) throws SQLException{
@@ -119,6 +125,34 @@ public class DB {
         if(con!=null && !con.isClosed()){
             con.close();
         }
+    }
+
+    public static TableModel convertRStoTableModel(ResultSet rs) throws SQLException{
+        DefaultTableModel model;
+
+        int colCount = rs.getMetaData().getColumnCount();
+        Vector colNames = new Vector();
+        for (int i = 1; i <= colCount; i++) {
+            colNames.add(rs.getMetaData().getColumnName(i));
+        }
+
+        Vector datas = new Vector();
+        System.out.println("Column Count"+colCount);
+        while(rs.next()){
+            Vector data = new Vector();
+            for (int i = 1; i <= colCount; i++) {
+                String x = rs.getString(i);
+                data.add(x);
+                System.out.print(x+", ");
+            }
+            System.out.println();
+            datas.add(data);
+        }
+
+        model = new DefaultTableModel(datas,colNames);
+
+        System.out.println("Success Converting ResultSet!");
+        return model;
     }
 
 }

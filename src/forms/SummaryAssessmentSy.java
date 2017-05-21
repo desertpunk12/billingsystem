@@ -17,25 +17,25 @@ public class SummaryAssessmentSy {
     public SummaryAssessmentSy(String schoolYear){
         this.schoolYear = schoolYear;
         pnlMain.setBorder(BorderFactory.createTitledBorder(new LineBorder(Color.BLACK),"School Year: "+schoolYear));
-        insertSems();
+//        insertSems();
     }
 
 
     private void insertSems(){
 //        TODO: process inserting of sems for specific semsesters
-
-
-
-
         //remove this shit
 
-        SummaryAssessmentSem sssem = new SummaryAssessmentSem(schoolYear,'s');
+        SummaryAssessmentSem sssem1 = new SummaryAssessmentSem(schoolYear,'s');
         SummaryAssessmentSem sssem2 = new SummaryAssessmentSem(schoolYear,'2');
         SummaryAssessmentSem sssem3 = new SummaryAssessmentSem(schoolYear,'1');
 
-        sssem.attach(pnlMain);
+        sssem1.attach(pnlMain);
         sssem2.attach(pnlMain);
         sssem3.attach(pnlMain);
+    }
+    public void addSem(char sem){
+        SummaryAssessmentSem sssem = new SummaryAssessmentSem(schoolYear,sem);
+        sssem.attach(pnlMain);
     }
 
     public void attach(JPanel pnl){

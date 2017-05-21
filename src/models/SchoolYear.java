@@ -1,6 +1,5 @@
 package models;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -8,12 +7,11 @@ import java.util.ArrayList;
  */
 public class SchoolYear {
 
-    private ArrayList<Sem> sems;
+    private ArrayList<Sem> sems = new ArrayList<>();
     private String schoolYear;
 
     public SchoolYear(String schoolYear) {
         this.schoolYear = schoolYear;
-        sems = new ArrayList<>();
     }
 
     public ArrayList<Sem> getSems() {
@@ -35,5 +33,6 @@ public class SchoolYear {
     public Sem getRecentSem(){
         return sems.get(sems.size()-1);
     }
+
 
 }

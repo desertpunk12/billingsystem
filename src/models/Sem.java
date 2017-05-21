@@ -5,6 +5,30 @@ package models;
  */
 public class Sem {
 
+    public char getSem() {
+        return sem;
+    }
+
+    public void setSem(char sem) {
+        this.sem = sem;
+    }
+
+    public double getRemainingBalance() {
+        return remainingBalance;
+    }
+
+    public void setRemainingBalance(double remainingBalance) {
+        this.remainingBalance = remainingBalance;
+    }
+
+    public double getTotalPayed() {
+        return totalPayed;
+    }
+
+    public void setTotalPayed(double totalPayed) {
+        this.totalPayed = totalPayed;
+    }
+
     private char sem;
     private double remainingBalance;
     private double totalPayed;

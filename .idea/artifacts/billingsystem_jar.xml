@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact name="billingsystem:jar">
+    <output-path>$PROJECT_DIR$/../../../../../Public/BillingSystemExport</output-path>
+    <root id="root">
+      <element id="archive" name="billingsystem.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/../../../../../Public/BillingSystemExport/META-INF/MANIFEST.MF" />
+        </element>
+        <element id="module-output" name="billingsystem" />
+      </element>
+      <element id="file-copy" path="$PROJECT_DIR$/lib/commons-beanutils-1.9.0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/groovy-all_2.4.5.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/postgresql-9.4.1211.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/ant-commons-logging.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/org.apache.commons.collections_3.2.2.v201511171945.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/commons-digester-2.1.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/jasperreports-6.3.1.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/org.apache.commons.logging_1.1.1.v201101211721.jar" />
+      <element id="dir-copy" path="$PROJECT_DIR$/src/jasperforms" />
+    </root>
+  </artifact>
+</component>

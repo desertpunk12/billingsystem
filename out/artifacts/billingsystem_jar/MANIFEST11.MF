@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Class-Path: commons-beanutils-1.9.0.jar groovy-all_2.4.5.jar postgresq
+ l-9.4.1211.jar ant-commons-logging.jar org.apache.commons.collections
+ _3.2.2.v201511171945.jar commons-digester-2.1.jar jasperreports-6.3.1
+ .jar org.apache.commons.logging_1.1.1.v201101211721.jar
+Main-Class: forms.Login
+

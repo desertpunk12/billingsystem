@@ -9,8 +9,10 @@ public class SchoolYear {
 
     private ArrayList<Sem> sems = new ArrayList<>();
     private String schoolYear;
+    private String studid;
 
-    public SchoolYear(String schoolYear) {
+    public SchoolYear(String studid,String schoolYear) {
+        this.studid=studid;
         this.schoolYear = schoolYear;
     }
 

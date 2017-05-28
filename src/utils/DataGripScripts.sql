@@ -1,3 +1,4 @@
+-- noinspection SqlNoDataSourceInspectionForFile
 
 
 select * from get_student_registration('2004-2005','1','2004-0001');

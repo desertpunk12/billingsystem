@@ -13,8 +13,10 @@ public class Student {
 
     private Double remainingBalance;
 
-    public Student(String studid){
+    public Student(String studid,String sy,char sem){
         this.studid = studid;
+        this.sy = sy;
+        this.sem = "Term "+sem;
         fetchData();
 
         subjects = new AssessmentSubjects(studid);
@@ -57,8 +59,6 @@ public class Student {
 
         //TODO: remove this latur
         setBasicInfo(new String[]{studid, "Pete Christian", "Reyes", "BSIT", "IV", "Faculty Dependent"});
-        sem = "Term 1";
-        sy = "2016 - 2017";
         date = "8/3/2016";
         remainingBalance = 0.00D;
         printBasicInfo();

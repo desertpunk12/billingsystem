@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
-<!-- 2017-03-31T03:57:05 -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0c453be4-2d5d-4010-a59c-e8f356bf2d85">
+<!-- 2017-05-29T03:40:07 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Error" uuid="0c453be4-2d5d-4010-a59c-e8f356bf2d85">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgreDB"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
@@ -112,7 +112,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="123" splitType="Stretch">
+		<band height="210" splitType="Stretch">
 			<staticText>
 				<reportElement x="194" y="0" width="167" height="24" uuid="e8359d02-2858-433d-a8de-2a59d1f44d2c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -141,88 +141,85 @@
 				</textElement>
 				<text><![CDATA[CERTIFICATE OF BILLING]]></text>
 			</staticText>
-		</band>
-	</title>
-	<pageHeader>
-		<band height="85" splitType="Stretch">
 			<staticText>
-				<reportElement x="8" y="9" width="100" height="19" uuid="a9a6f413-db50-40b9-a19c-ef46a8ccd659"/>
+				<reportElement x="8" y="138" width="100" height="19" uuid="74313500-ae01-4666-ae0a-6780ac3d13a5"/>
 				<textElement verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Students Name:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="110" y="9" width="203" height="19" uuid="d3d97d8c-0381-412c-9a2b-82edadcee3bb"/>
+				<reportElement x="110" y="138" width="203" height="19" uuid="c9ea81c4-ee85-412e-be0b-e3d97e93cec9"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="9" y="32" width="100" height="20" uuid="54117242-f92e-4096-8db8-c12b4d74dd5c"/>
+				<reportElement x="9" y="161" width="100" height="20" uuid="5d10ddd8-bf6a-4d48-8b38-072ddaa15d61"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[ID number:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="9" y="56" width="100" height="24" uuid="b87eddee-36f6-4bf0-8198-5bfbafb6350f"/>
+				<reportElement x="9" y="185" width="100" height="24" uuid="0a32e8df-e276-4376-aa3b-8428cf3d5563"/>
 				<textElement verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Year & Course:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="111" y="32" width="202" height="20" uuid="35980261-a6f3-4144-9cf8-d7320bfa2c2e"/>
+				<reportElement x="111" y="161" width="202" height="20" uuid="f8cece25-74ac-4d5d-8e9a-43d7e9460c09"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$P{studid}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="111" y="56" width="202" height="23" uuid="6d32f24d-faba-4eac-8e8f-b58fae20c323"/>
+				<reportElement x="111" y="185" width="202" height="23" uuid="1de81433-d8b2-4787-ad6d-48b78aa43d97"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{yrandcourse}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="320" y="9" width="100" height="19" uuid="15552491-e6c2-46d4-a912-b35192ea12c6"/>
+				<reportElement x="320" y="138" width="100" height="19" uuid="3286a92e-c1a0-4c79-abc5-e44613280140"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Date:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="320" y="33" width="100" height="18" uuid="9e29a160-1ed5-48bd-a4a5-bc726d0253c9"/>
+				<reportElement x="320" y="162" width="100" height="18" uuid="644f3927-d326-4529-a3ad-37f5af0acdf0"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[S.Y / Semester:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="423" y="9" width="132" height="19" uuid="a5a6db6d-f62a-4fcd-93ca-156d8a8c9ed1"/>
+				<reportElement x="423" y="138" width="132" height="19" uuid="fb900b80-0bc4-46e7-bf61-27df7ba1bee4"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="422" y="33" width="133" height="19" uuid="095c26b6-927d-41ae-be69-cd797faf096a"/>
+				<reportElement x="422" y="162" width="133" height="19" uuid="1ffaca7a-19ea-4bf0-8bc1-aa206c808bf2"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$P{sysem}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="320" y="62" width="100" height="18" uuid="31be4c0e-8c3b-47ac-bb4a-26960cd2c5a2"/>
+				<reportElement x="320" y="191" width="100" height="18" uuid="7471ba73-5ee5-4b00-b556-dec5442edd1c"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Scholarship:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="422" y="62" width="133" height="19" uuid="106f1f8a-02f5-46fe-ac2b-fdd6c0a5993f"/>
+				<reportElement x="422" y="191" width="133" height="19" uuid="2835d5dd-8cf7-446f-81db-8d4e55d18ee2"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$P{scholarship}]]></textFieldExpression>
 			</textField>
 		</band>
-	</pageHeader>
+	</title>
 	<detail>
-		<band height="325" splitType="Stretch">
+		<band height="300" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<staticText>
 				<reportElement x="0" y="0" width="250" height="30" uuid="72eab033-f883-45a1-b6ec-7a07ee0b45ba"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -414,17 +411,18 @@
 			</componentElement>
 		</band>
 	</detail>
-	<pageFooter>
-		<band height="120" splitType="Stretch">
+	<summary>
+		<band height="120">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<staticText>
-				<reportElement x="270" y="38" width="100" height="30" uuid="5bce260c-7dee-4ea2-985e-9e24d36b5e11"/>
+				<reportElement x="270" y="38" width="100" height="30" uuid="7adedbc7-0cd9-4009-83f2-2ba114d0eb2e"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Prepared by:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="379" y="79" width="160" height="30" uuid="f8dbdc36-6a35-4475-82fd-0c67d0c4f970"/>
+				<reportElement x="379" y="79" width="160" height="30" uuid="797aaf01-cf5c-446d-8389-00b5b5ae10a7"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 				</box>
@@ -434,19 +432,19 @@
 				<text><![CDATA[Student Account In-charge]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="385" y="0" width="154" height="30" uuid="aa23fe3f-a01a-45b0-826c-18256a8e05ba"/>
+				<reportElement x="385" y="0" width="154" height="30" uuid="8bc0560d-6a65-456a-9b76-2ec3ad8b7923"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{remainingbalance}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="250" y="0" width="120" height="30" uuid="d55e7c9b-ac1f-4307-941d-f7d17c008cb8"/>
+				<reportElement x="250" y="0" width="120" height="30" uuid="9a9e34e7-a5cb-440c-b211-a39bde5f1e4f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Remaning Balance:]]></text>
 			</staticText>
 		</band>
-	</pageFooter>
+	</summary>
 </jasperReport>

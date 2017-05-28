@@ -11,7 +11,7 @@ public class AssessmentVars {
 
     public AssessmentVars(String studid){
         this.studid = studid;
-        student = new Student(studid);
+//        student = new Student(studid);
     }
 
 }

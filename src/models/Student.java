@@ -7,7 +7,7 @@ public class Student {
 
     private SummaryAssessment summaryAssessment;//checked DONE???
 
-    //Rerorts
+    //Reports
     private Assessment assessment;
     private Permit permit;
     private Clearance clearance;

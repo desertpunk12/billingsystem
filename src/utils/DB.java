@@ -14,7 +14,7 @@ public class DB {
 
     private static final String DB_IP = "localhost";
     private static final String DB_PORT = "5432";
-    private static final String DB_NAME = "postgres";
+    private static final String DB_NAME = "schooldb";
     private static String DB_USER;
     private static String DB_PASSWORD;
 
@@ -72,7 +72,7 @@ public class DB {
             System.out.println("Successfully Executed Query!");
         }
 
-        close();
+//        close();
 
         return rs;
     }

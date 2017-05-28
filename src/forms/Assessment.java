@@ -39,6 +39,8 @@ public class Assessment {
     private JScrollPane scrlSummary;
     private JPanel pnlPermitView;
     private JPanel pnlClearanceView;
+    private JComboBox cmbPrevSy;
+    private JPasswordField hiddenSelectedSem;
     //</editor-fold>
 
     private boolean isAdmin;
@@ -50,8 +52,12 @@ public class Assessment {
     private Thread thrdPermit;
     private Thread thrdClearance;
     private volatile boolean running = false;
-    private volatile String studid;
 
+    private volatile String studid;
+    private volatile String sy;
+    private volatile char sem;
+
+//    private JPasswordField hiddenSelectedSem;
 
     private SummaryAssessment smryAss;
 
@@ -62,10 +68,23 @@ public class Assessment {
         listeners();
 //        btnSearchStudentByName.setFocusable(false);//should change this latur
         btnFees.setFocusable(false);//should change this latur
+//        hiddenSelectedSem = new JPasswordField();
+//        hiddenSelectedSem.setVisible(false);
+//        SwingUtilities.invokeLater(()->pnlSummary.add(hiddenSelectedSem));
+
     }
 
 
     private void listeners(){
+
+        hiddenSelectedSem.addActionListener(e -> assessStudent(studid) );
+
+        cmbPrevSy.addItemListener(e -> {
+            if(e.getStateChange() == ItemEvent.SELECTED){
+                summaryAssessmentSchoolYearSelected();
+            }
+        });
+
         btnEditAssessment.addActionListener((e)->{
             EditAssessment editView = new EditAssessment();
             editView.show();
@@ -114,7 +133,7 @@ public class Assessment {
         });
 
 
-        btnSearchStudentIdNumber.addActionListener(e -> assessStudent());
+        btnSearchStudentIdNumber.addActionListener(e -> showSummaryAssessment());
 
         pnlMain.addComponentListener(new ComponentAdapter() {
             @Override
@@ -158,7 +177,7 @@ public class Assessment {
         m.put("name",currentStudent.getFullName());
         m.put("studid",currentStudent.getStudId());
         m.put("yrandcourse","Year "+currentStudent.getYrlvl()+" in "+currentStudent.getCourse());
-        m.put("sysem",currentStudent.getSem()+" "+currentStudent.getSy());
+        m.put("sysem","Term "+sem+" "+sy);
         m.put("curdate",currentStudent.getDate());
         m.put("subjectsDataSource",currentStudent.getSubjectsDataSource());
         m.put("feesDataSource",currentStudent.getFeesDataSource());
@@ -179,7 +198,7 @@ public class Assessment {
         m.put("name",currentStudent.getFullName());
         m.put("studid",currentStudent.getStudId());
         m.put("yrlvl",currentStudent.getYrlvl());
-        m.put("sysem",currentStudent.getSem()+" "+currentStudent.getSy());
+        m.put("sysem","Term "+sem+" "+sy);
         m.put("subjectsDataSource","");
         m.put("remainingbalance",currentStudent.getRemainingBalance());
         m.put("scholarship",currentStudent.getScholarship());
@@ -195,7 +214,7 @@ public class Assessment {
         m.put("name",currentStudent.getFullName());
         m.put("studid",currentStudent.getStudId());
         m.put("yrlvl",currentStudent.getYrlvl());
-        m.put("sysem",currentStudent.getSem()+" "+currentStudent.getSy());
+        m.put("sysem","Term"+sem+" "+sy);
         m.put("subjectsDataSource","");
         m.put("remainingbalance",currentStudent.getRemainingBalance());
         m.put("scholarship",currentStudent.getScholarship());
@@ -204,39 +223,6 @@ public class Assessment {
         viewReport(pnlClearanceView,srcFileCompiled,m,true);
     }
 
-
-    private void assessStudent(){
-        String tmpstudid = txtSearchStudentIdNumber.getText();
-        if(tmpstudid.equals(studid))
-            return;
-        studid = tmpstudid;
-        if(currentStudent!=null)
-            prevStudent = currentStudent;
-        currentStudent = new Student(studid);
-
-        addLoading(pnlAssessmentView);
-        addLoading(pnlPermitView);
-        addLoading(pnlClearanceView);
-
-        if(running) {
-            thrdAssessment.interrupt();
-            thrdPermit.interrupt();
-            thrdClearance.interrupt();
-            running = false;
-        }
-
-        thrdAssessment = new Thread(() -> {try{viewAssessmentReport();}catch (JRFillInterruptedException e){System.out.println("Cancelled jasper view request!");}catch (JRException | SQLException e1){e1.printStackTrace();}});
-        thrdAssessment.start();
-
-        thrdPermit = new Thread(() -> {try{viewPermitReport();}catch (JRFillInterruptedException e){System.out.println("Cancelled jasper view request!");}catch (JRException | SQLException e1){e1.printStackTrace();}});
-        thrdPermit.start();
-
-        thrdClearance= new Thread(() -> {try{viewClearanceReport();}catch (JRFillInterruptedException e){System.out.println("Cancelled jasper view request!");}catch (JRException | SQLException e1){e1.printStackTrace();}});
-        thrdClearance.start();
-
-        //TODO: removthis shit
-        showSummaryAssessment(studid);
-    }
 
     private void addLoading(JPanel pnl){
          if(!running&& pnl.getComponentCount()<2) {
@@ -249,16 +235,78 @@ public class Assessment {
          }
     }
 
-    private void showSummaryAssessment(String studid){
-        SummaryAssessment summaryAssessment = new SummaryAssessment(studid);
-        for(SchoolYear schoolYear : summaryAssessment.getSchoolYears()) {
-            SummaryAssessmentSy sssy = new SummaryAssessmentSy(schoolYear.getSchoolYear());
-            sssy.attach(pnlSummary);
-            for(Sem sem: schoolYear.getSems()){
-                sssy.addSem(sem.getSem());
-            }
+    private void assessStudent(String studid){
+        String tmpsy = cmbPrevSy.getSelectedItem().toString();
+        char tmpsem = hiddenSelectedSem.getPassword()[0];
+        System.out.println("Temp Sem: " + tmpsem);
 
+        if(tmpsem==sem && tmpsy==null && tmpsy.equals(sy))
+            return;
+
+        sy = tmpsy;
+        sem = tmpsem;
+
+        addLoading(pnlAssessmentView);
+        addLoading(pnlPermitView);
+        addLoading(pnlClearanceView);
+
+        if(running) {
+            thrdAssessment.interrupt();
+            thrdPermit.interrupt();
+            thrdClearance.interrupt();
+            running = false;
         }
+
+
+        thrdAssessment = new Thread(() -> {try{viewAssessmentReport();}catch (JRFillInterruptedException e){System.out.println("Cancelled jasper view request!");}catch (JRException | SQLException e1){e1.printStackTrace();}});
+        thrdAssessment.start();
+
+        thrdPermit = new Thread(() -> {try{viewPermitReport();}catch (JRFillInterruptedException e){System.out.println("Cancelled jasper view request!");}catch (JRException | SQLException e1){e1.printStackTrace();}});
+        thrdPermit.start();
+
+        thrdClearance= new Thread(() -> {try{viewClearanceReport();}catch (JRFillInterruptedException e){System.out.println("Cancelled jasper view request!");}catch (JRException | SQLException e1){e1.printStackTrace();}});
+        thrdClearance.start();
+
+    }
+
+
+    private void showSummaryAssessment(){
+        String tmpstudid = txtSearchStudentIdNumber.getText();
+        if(tmpstudid.equals(studid))
+            return;
+        studid = tmpstudid;
+        if(currentStudent!=null)
+            prevStudent = currentStudent;
+        currentStudent = new Student(studid,sy,sem);
+
+        smryAss = new SummaryAssessment(studid);
+        cmbPrevSy.removeAllItems();
+        System.out.println("Removed all combo box years, Now adding the new years!!:::" + smryAss.getSchoolYears().size());
+        for(SchoolYear schoolYear : smryAss.getSchoolYears()) {
+            System.out.println(schoolYear.getSchoolYear());
+            cmbPrevSy.addItem(schoolYear.getSchoolYear());
+        }
+
+
+    }
+
+    private void summaryAssessmentSchoolYearSelected(){
+//        pnlSummary.removeAll();
+        pnlSummary.getComponentCount();
+        for (int i = 0; i < pnlSummary.getComponentCount(); i++) {
+            if(pnlSummary.getComponent(i) instanceof JPasswordField)
+                continue;
+            else
+                pnlSummary.remove(pnlSummary.getComponent(i));
+        }
+
+        SchoolYear sySelected = smryAss.getSchoolYears().get(cmbPrevSy.getSelectedIndex());
+        SummaryAssessmentSy sssy = new SummaryAssessmentSy(sySelected);
+        sssy.attach(pnlSummary);
+
+        assessStudent(studid);
+
+
     }
 
     //</editor-fold>
@@ -293,7 +341,7 @@ public class Assessment {
         JFrameHelper.show(frame,pnlMain,"Students Billing System of DOSCST",true);
         SwingUtilities.invokeLater(() -> {
             try{
-                MaskFormatter formatter = new MaskFormatter("#### - ####");
+                MaskFormatter formatter = new MaskFormatter("####-####");
                 formatter.setPlaceholderCharacter('0');
                 txtSearchStudentIdNumber.setFormatterFactory(new DefaultFormatterFactory(formatter));
             } catch (ParseException e) {

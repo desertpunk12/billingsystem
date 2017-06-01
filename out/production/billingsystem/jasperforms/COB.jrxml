@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
-<!-- 2017-05-29T03:36:35 -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Error" uuid="0c453be4-2d5d-4010-a59c-e8f356bf2d85">
+<!-- 2017-06-01T10:48:04 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="612" pageHeight="936" whenNoDataType="NoDataSection" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Error" uuid="0c453be4-2d5d-4010-a59c-e8f356bf2d85">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgreDB"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="inch"/>
 	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
 		<box>
 			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
@@ -82,7 +83,7 @@
 		<queryString>
 			<![CDATA[]]>
 		</queryString>
-		<field name="fee" class="java.lang.String"/>
+		<field name="desc" class="java.lang.String"/>
 		<field name="amount" class="java.lang.Double"/>
 		<variable name="feetotalunits" class="java.lang.Double" calculation="Sum">
 			<variableExpression><![CDATA[$F{amount}]]></variableExpression>
@@ -99,11 +100,15 @@
 	<parameter name="feesDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource">
 		<parameterDescription><![CDATA[]]></parameterDescription>
 	</parameter>
-	<parameter name="remainingbalance" class="java.lang.Double">
+	<parameter name="oldaccounts" class="java.lang.Double">
 		<parameterDescription><![CDATA[]]></parameterDescription>
 		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
 	</parameter>
 	<parameter name="scholarship" class="java.lang.String"/>
+	<parameter name="gendate" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[$F{date}]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT to_char(CURRENT_DATE,'MonthDD   YYYY') as date]]>
 	</queryString>
@@ -196,7 +201,7 @@
 			<textField>
 				<reportElement x="423" y="138" width="132" height="19" uuid="fb900b80-0bc4-46e7-bf61-27df7ba1bee4"/>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{gendate}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="422" y="162" width="133" height="19" uuid="1ffaca7a-19ea-4bf0-8bc1-aa206c808bf2"/>
@@ -218,7 +223,8 @@
 		</band>
 	</title>
 	<detail>
-		<band height="325" splitType="Stretch">
+		<band height="230" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<staticText>
 				<reportElement x="0" y="0" width="250" height="30" uuid="72eab033-f883-45a1-b6ec-7a07ee0b45ba"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -378,7 +384,7 @@
 							<textField>
 								<reportElement x="0" y="0" width="250" height="20" uuid="22285c91-12e5-4167-93b2-7872b7a8d4d6"/>
 								<textElement verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$F{fee}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{desc}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -411,16 +417,16 @@
 		</band>
 	</detail>
 	<pageFooter>
-		<band height="120" splitType="Stretch">
+		<band height="109">
 			<staticText>
-				<reportElement x="270" y="38" width="100" height="30" uuid="5bce260c-7dee-4ea2-985e-9e24d36b5e11"/>
+				<reportElement x="270" y="38" width="100" height="30" uuid="1eb3b229-c4dc-47af-919b-7943ee0629be"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Prepared by:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="379" y="79" width="160" height="30" uuid="f8dbdc36-6a35-4475-82fd-0c67d0c4f970"/>
+				<reportElement x="379" y="79" width="160" height="30" uuid="28b5c133-1a95-480c-9e20-00a7d29ac834"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 				</box>
@@ -430,18 +436,18 @@
 				<text><![CDATA[Student Account In-charge]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="385" y="0" width="154" height="30" uuid="aa23fe3f-a01a-45b0-826c-18256a8e05ba"/>
+				<reportElement x="385" y="0" width="154" height="30" uuid="47598638-3132-457b-84d3-9dc424ae1f55"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{remainingbalance}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{oldaccounts}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="250" y="0" width="120" height="30" uuid="d55e7c9b-ac1f-4307-941d-f7d17c008cb8"/>
+				<reportElement x="250" y="0" width="120" height="30" uuid="5b08dfff-c9fb-459f-a2f5-ff0c587db4a2"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[Remaning Balance:]]></text>
+				<text><![CDATA[Old Accounts:]]></text>
 			</staticText>
 		</band>
 	</pageFooter>

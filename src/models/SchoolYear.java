@@ -36,5 +36,15 @@ public class SchoolYear {
         return sems.get(sems.size()-1);
     }
 
+    public Sem getSem(char sem){
+        for (int i = 0; i < sems.size(); i++) {
+            if(sems.get(i).getSem()==sem)
+                return sems.get(i);
+            else
+                System.out.println("Searched sem but could not be found!"+sems.size()+":"+sem);
+        }
+
+        return null;
+    }
 
 }

@@ -9,12 +9,22 @@ public class Subject {
     private String subjlecUnits;
     private String subjlabUnits;
     private String subjcredUnits;
+    private String subjSection;
 
-    public Subject(String subjcode, String subjlecUnits, String subjlabUnits, String subjcredUnits) {
+    public Subject(String subjcode, String subjlecUnits, String subjlabUnits, String subjcredUnits,String subjSection) {
         this.subjcode = subjcode;
         this.subjlecUnits = subjlecUnits;
         this.subjlabUnits = subjlabUnits;
         this.subjcredUnits = subjcredUnits;
+        this.subjSection = subjSection;
+    }
+
+    public String getSubjSection() {
+        return subjSection;
+    }
+
+    public void setSubjSection(String subjSection) {
+        this.subjSection = subjSection;
     }
 
     public String getSubjcode() {

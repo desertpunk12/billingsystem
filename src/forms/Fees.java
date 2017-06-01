@@ -18,6 +18,8 @@ public class Fees {
     private JComboBox cmbSy;
     private JComboBox cmbSem;
     private JTable tblFees;
+    private JButton btnRemoveDefaultFee;
+    private JButton btnAddDefaultFee;
 
     private JFrame frame;
 
@@ -26,8 +28,9 @@ public class Fees {
     private String qAss = "SELECT * FROM srgb.assessmentfee";
     private String qLab = "SELECT * FROM srgb.labmatrix";
     private String qTui = "SELECT * FROM srgb.tuitionmatrix";
+    private String qDef = "SELECT feecode, feedesc,enrol,yrlvl1_day,yrlvl1_night,yrlvl2_day,yrlvl2_night,yrlvl3_day,yrlvl3_night,yrlvl4_day,yrlvl4_night,yrlvl5_day,yrlvl5_night FROM srgb.fees JOIN srgb.miscfeematrix USING (feecode) WHERE enrol=TRUE";
 
-    private String qSy = "SELECT sy FROM srgb.semester GROUP BY sy ORDER BY sy ASC;";
+    private String qSy = "SELECT sy FROM srgb.semester GROUP BY sy ORDER BY sy DESC;";
 
     private Thread thrdProcessTable;
 
@@ -86,6 +89,22 @@ public class Fees {
         }catch (Exception e){e.printStackTrace();}
     }
 
+    private String querySySemDefaultFees(JComboBox cmbSy, JComboBox cmbSem){
+        String query="";
+        if(cmbSy.getSelectedIndex()>0 || cmbSem.getSelectedIndex()>0){
+            String sy = cmbSy.getSelectedItem().toString();
+            String sem = cmbSem.getSelectedItem().toString();
+            if(!sy.equals("All")){
+                query+= " AND sy='"+sy+"'";
+            }
+            if(!sem.equals("All")){
+                query+= " AND sem='"+sem+"'";
+            }
+        }
+
+        return query;
+    }
+
     private String querySySemWhere(JComboBox cmbSy, JComboBox cmbSem){
         String query = "";
         if(cmbSy.getSelectedIndex()>0 || cmbSem.getSelectedIndex()>0){
@@ -134,6 +153,8 @@ public class Fees {
 
     private String proccessQuery(){
         String query = "";
+        btnRemoveDefaultFee.setVisible(false);
+        btnAddDefaultFee.setVisible(false);
         switch(cmbFeetype.getSelectedIndex()){
             case 0:
                 query = qMis;
@@ -149,6 +170,12 @@ public class Fees {
             case 3:
                 query = qTui;
                 query += querySySemWhere(cmbSy,cmbSem);
+                break;
+            case 4:
+                query = qDef;
+                query += querySySemDefaultFees(cmbSy,cmbSem);
+                btnRemoveDefaultFee.setVisible(true);
+                btnAddDefaultFee.setVisible(true);
                 break;
         }
 

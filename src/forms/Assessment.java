@@ -18,6 +18,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.HashMap;
 
@@ -41,6 +42,9 @@ public class Assessment {
     private JPanel pnlClearanceView;
     private JComboBox cmbPrevSy;
     private JPasswordField hiddenSelectedSem;
+    private JButton btnPrintAssessment;
+    private JButton btnPrintPermit;
+    private JButton btnPrintClearance;
     //</editor-fold>
 
     private boolean isAdmin;
@@ -169,6 +173,18 @@ public class Assessment {
 
     }
 
+    private Double getOldAccounts(String studid) throws SQLException{
+        String query = "SELECT (allassessmentsamount-totalamountpaidforallsems) as oldaccounts FROM\n" +
+                "(SELECT sum(amt) as allassessmentsamount FROM srgb.ass_details WHERE studid='"+studid+"') ass,\n" +
+                "(SELECT sum(amt) as totalamountpaidforallsems FROM srgb.collection_details JOIN srgb.collection_header USING(orno) WHERE studid='"+studid+"') paid\n" +
+                ";";
+        System.out.println(query);
+
+        ResultSet rs = DB.query(query);
+        rs.next();
+        return rs.getDouble(1);
+    }
+
 
     private synchronized void viewAssessmentReport() throws JRFillInterruptedException, JRException, SQLException{
         running = true;
@@ -178,16 +194,16 @@ public class Assessment {
         m.put("studid",currentStudent.getStudId());
         m.put("yrandcourse","Year "+currentStudent.getYrlvl()+" in "+currentStudent.getCourse());
         m.put("sysem","Term "+sem+" "+sy);
-        m.put("curdate",currentStudent.getDate());
+        if(currentStudent.getGenDate()!=null) {
+            System.out.println(currentStudent.getGenDate());
+            m.put("gendate", currentStudent.getGenDate());
+        }else System.out.println("GEEEEEEEEEENNNNNNNNNNNNNNNNNNN DAAAAAAAAAAAAAAAATEEEEEEEEEEEEE NNNNNNNNNNNNNNNUUUUUUUUUUUUULLLLL!!!");
         m.put("subjectsDataSource",currentStudent.getSubjectsDataSource());
         m.put("feesDataSource",currentStudent.getFeesDataSource());
-        m.put("remainingbalance",currentStudent.getRemainingBalance());
+        m.put("oldaccounts",getOldAccounts(currentStudent.getStudId()));
         m.put("scholarship",currentStudent.getScholarship());
 
         viewReport(pnlAssessmentView,srcFileCompiled,m,true);
-
-
-
     }
 
 
@@ -197,13 +213,13 @@ public class Assessment {
         HashMap<String,Object> m = new HashMap<>();
         m.put("name",currentStudent.getFullName());
         m.put("studid",currentStudent.getStudId());
-        m.put("yrlvl",currentStudent.getYrlvl());
+        m.put("yrlvl",""+currentStudent.getYrlvl());
         m.put("sysem","Term "+sem+" "+sy);
-        m.put("subjectsDataSource","");
-        m.put("remainingbalance",currentStudent.getRemainingBalance());
+        m.put("subjectsDataSource1",currentStudent.getSubjectsDataSource());
+        m.put("subjectsDataSource2",currentStudent.getSubjectsDataSource());
         m.put("scholarship",currentStudent.getScholarship());
-        m.put("minamountpayable","");
-
+        m.put("minimumamount", Math.min(currentStudent.getTotalAssessment()/3,currentStudent.getRemainingBalance()));
+        m.put("remainingbalance", currentStudent.getRemainingBalance());
         viewReport(pnlPermitView,srcFileCompiled,m,true);
     }
 
@@ -214,11 +230,11 @@ public class Assessment {
         m.put("name",currentStudent.getFullName());
         m.put("studid",currentStudent.getStudId());
         m.put("yrlvl",currentStudent.getYrlvl());
-        m.put("sysem","Term"+sem+" "+sy);
-        m.put("subjectsDataSource","");
-        m.put("remainingbalance",currentStudent.getRemainingBalance());
-        m.put("scholarship",currentStudent.getScholarship());
-        m.put("minamountpayable","");
+        m.put("sy",sy);
+        m.put("sem",sem+"");
+        m.put("course",currentStudent.getCourse());
+        m.put("subjectsDataSource",currentStudent.getSubjectsDataSource());
+        m.put("remainingbalance", currentStudent.getRemainingBalance());
 
         viewReport(pnlClearanceView,srcFileCompiled,m,true);
     }
@@ -238,13 +254,21 @@ public class Assessment {
     private void assessStudent(String studid){
         String tmpsy = cmbPrevSy.getSelectedItem().toString();
         char tmpsem = hiddenSelectedSem.getPassword()[0];
-        System.out.println("Temp Sem: " + tmpsem);
 
-        if(tmpsem==sem && tmpsy==null && tmpsy.equals(sy))
+        if( tmpsy==null || sem=='0'  ) {
+            System.out.println("Parehas"+studid);
             return;
+        }
 
         sy = tmpsy;
         sem = tmpsem;
+
+        if(currentStudent!=null)
+            prevStudent = currentStudent;
+        //TODO: Please changed this really ugly code!!
+        Sem ssemm = smryAss.getSchoolYears().get(cmbPrevSy.getSelectedIndex()).getSem(sem);
+        currentStudent = new Student(studid,sy,sem,ssemm.getRemainingBalance(),ssemm.getTotalAssessment());
+        System.out.println("Balance::: "+smryAss.getSchoolYears().get(cmbPrevSy.getSelectedIndex()).getSem(sem).getRemainingBalance());
 
         addLoading(pnlAssessmentView);
         addLoading(pnlPermitView);
@@ -275,9 +299,13 @@ public class Assessment {
         if(tmpstudid.equals(studid))
             return;
         studid = tmpstudid;
-        if(currentStudent!=null)
-            prevStudent = currentStudent;
-        currentStudent = new Student(studid,sy,sem);
+        pnlAssessmentView.removeAll();
+        pnlPermitView.removeAll();
+        pnlClearanceView.removeAll();
+
+        pnlAssessmentView.updateUI();
+        pnlPermitView.updateUI();
+        pnlClearanceView.updateUI();
 
         smryAss = new SummaryAssessment(studid);
         cmbPrevSy.removeAllItems();
@@ -292,7 +320,6 @@ public class Assessment {
 
     private void summaryAssessmentSchoolYearSelected(){
 //        pnlSummary.removeAll();
-        pnlSummary.getComponentCount();
         for (int i = 0; i < pnlSummary.getComponentCount(); i++) {
             if(pnlSummary.getComponent(i) instanceof JPasswordField)
                 continue;
@@ -304,9 +331,7 @@ public class Assessment {
         SummaryAssessmentSy sssy = new SummaryAssessmentSy(sySelected);
         sssy.attach(pnlSummary);
 
-        assessStudent(studid);
-
-
+//        SwingUtilities.invokeLater(()-> assessStudent(studid));
     }
 
     //</editor-fold>

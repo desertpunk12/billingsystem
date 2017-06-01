@@ -9,12 +9,14 @@ public class AssessmentSubject {
     private Double lec;
     private Double lab;
     private Double credunits;
+    private String section;
 
-    public AssessmentSubject(String subject, Double lec, Double lab, Double credunits) {
+    public AssessmentSubject(String subject, Double lec, Double lab, Double credunits, String section) {
         this.subject = subject;
         this.lec = lec;
         this.lab = lab;
         this.credunits = credunits;
+        this.section = section;
     }
 
     //<editor-fold defaultstate="collapsed" desc="Getters and Setters">
@@ -49,6 +51,14 @@ public class AssessmentSubject {
 
     public void setCredunits(Double credunits) {
         this.credunits = credunits;
+    }
+
+    public String getSection() {
+        return section;
+    }
+
+    public void setSection(String section) {
+        this.section = section;
     }
 
     //</editor-fold>

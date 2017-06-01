@@ -15,6 +15,7 @@ public class SummaryAssessment {
     private ArrayList<SchoolYear> schoolYears;
     private String studid;
 
+
     public SummaryAssessment(String studid) {
         this.studid=studid;
         schoolYears = new ArrayList<>();
@@ -65,7 +66,7 @@ public class SummaryAssessment {
             String sy = columnData[0];
             char sem = columnData[1].charAt(0);
             double totalAssessment = Double.parseDouble(columnData[2]);
-            double totalBalance = columnData[3]!=null ? Double.parseDouble(columnData[3]) : 0;
+            double totalBalance = columnData[3]!=null ? Double.parseDouble(columnData[3]) : totalAssessment;
 
 
             //Assigning variables columnData to models

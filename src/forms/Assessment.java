@@ -45,6 +45,7 @@ public class Assessment {
     private JButton btnPrintAssessment;
     private JButton btnPrintPermit;
     private JButton btnPrintClearance;
+    private JPanel pnlNewAssessment;
     //</editor-fold>
 
     private boolean isAdmin;
@@ -290,6 +291,12 @@ public class Assessment {
 
         thrdClearance= new Thread(() -> {try{viewClearanceReport();}catch (JRFillInterruptedException e){System.out.println("Cancelled jasper view request!");}catch (JRException | SQLException e1){e1.printStackTrace();}});
         thrdClearance.start();
+
+    }
+
+    private void createNewAssessment(String studid){
+        //get the current semester
+
 
     }
 

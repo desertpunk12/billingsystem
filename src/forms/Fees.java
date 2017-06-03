@@ -6,6 +6,8 @@ import utils.JFrameHelper;
 import javax.swing.*;
 import java.awt.event.*;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Created by dpunk12 on 2/2/2017.
@@ -24,11 +26,16 @@ public class Fees {
     private JFrame frame;
 
 
+    private ArrayList<String> sys;
+
+
     private String qMis = "SELECT feecode, feedesc, sy, sem, yrlvl1_day,yrlvl2_day,yrlvl3_day,yrlvl4_day,yrlvl5_day,yrlvl1_night,yrlvl2_night,yrlvl3_night,yrlvl4_night,yrlvl5_night FROM srgb.fees JOIN srgb.miscfeematrix using(feecode)";
     private String qAss = "SELECT * FROM srgb.assessmentfee";
     private String qLab = "SELECT * FROM srgb.labmatrix";
     private String qTui = "SELECT * FROM srgb.tuitionmatrix";
-    private String qDef = "SELECT feecode, feedesc,enrol,yrlvl1_day,yrlvl1_night,yrlvl2_day,yrlvl2_night,yrlvl3_day,yrlvl3_night,yrlvl4_day,yrlvl4_night,yrlvl5_day,yrlvl5_night FROM srgb.fees JOIN srgb.miscfeematrix USING (feecode) WHERE enrol=TRUE";
+    private String qDef = "SELECT sy,sem,feecode, feedesc,yrlvl1_day,yrlvl1_night,yrlvl2_day,yrlvl2_night,yrlvl3_day,yrlvl3_night,yrlvl4_day,yrlvl4_night,yrlvl5_day,yrlvl5_night FROM srgb.fees JOIN srgb.miscfeematrix USING (feecode) WHERE enrol=TRUE";
+
+    private String qDefRemove = "UPDATE srgb.miscfeematrix SET enrol=FALSE WHERE sy='%s' AND sem='%s' AND feecode='%s';";
 
     private String qSy = "SELECT sy FROM srgb.semester GROUP BY sy ORDER BY sy DESC;";
 
@@ -36,9 +43,11 @@ public class Fees {
 
     public Fees(){
         frame = new JFrame();
-        getSchoolYearsUpdateComboBox();
+        sys = new ArrayList<>();
+        tblFees.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         thrdProcessTable = new Thread(()->SwingUtilities.invokeLater(()-> processTableView()));
         thrdProcessTable.start();
+        getSchoolYearsUpdateComboBox();
         listeners();
 
     }
@@ -78,6 +87,13 @@ public class Fees {
             }
         });
         btnSearch.addActionListener(e -> processTableView(true));
+
+        btnAddDefaultFee.addActionListener(e -> {
+            new AddDefaultFees(cmbSy.getSelectedIndex(),cmbSem.getSelectedIndex());
+            refreshTable();
+        });
+
+        btnRemoveDefaultFee.addActionListener(e -> removeSelectedFeeAsDefault());
     }
 
     private void getSchoolYearsUpdateComboBox(){
@@ -131,7 +147,7 @@ public class Fees {
         String query = "";
         ResultSet rs;
 
-        query = proccessQuery();
+        query = processQuery();
 
         if(isSearch) {
             String searchText = txtSearch.getText().toLowerCase();
@@ -151,7 +167,7 @@ public class Fees {
         }catch(Exception e){ e.printStackTrace(); }
     }
 
-    private String proccessQuery(){
+    private String processQuery(){
         String query = "";
         btnRemoveDefaultFee.setVisible(false);
         btnAddDefaultFee.setVisible(false);
@@ -180,6 +196,30 @@ public class Fees {
         }
 
         return query;
+    }
+
+    private void removeSelectedFeeAsDefault(){
+        if(tblFees.getSelectedRow()==-1) {
+            JOptionPane.showMessageDialog(null, "You need to select a fee to delete");
+            return;
+        }
+        String sy = String.valueOf(tblFees.getValueAt(tblFees.getSelectedRow(),0));
+        String sem = String.valueOf(tblFees.getValueAt(tblFees.getSelectedRow(),1));
+        String feecode = String.valueOf(tblFees.getValueAt(tblFees.getSelectedRow(),2));
+        removeSelectedFeeAsDefault(sy,sem,feecode);
+    }
+
+    private void removeSelectedFeeAsDefault(String sy,String sem,String feecode){
+        String query = String.format(qDefRemove,sy,sem,feecode);
+        System.out.println(query);
+
+        try {
+            DB.query(query,true);
+            System.out.println("Successfuly Remvoed "+feecode+" as a default fee!");
+            refreshTable();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void show(){

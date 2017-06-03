@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
-<!-- 2017-06-01T10:48:04 -->
+<!-- 2017-06-03T23:26:26 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="612" pageHeight="936" whenNoDataType="NoDataSection" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Error" uuid="0c453be4-2d5d-4010-a59c-e8f356bf2d85">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgreDB"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
@@ -223,7 +223,7 @@
 		</band>
 	</title>
 	<detail>
-		<band height="230" splitType="Stretch">
+		<band height="234" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<staticText>
 				<reportElement x="0" y="0" width="250" height="30" uuid="72eab033-f883-45a1-b6ec-7a07ee0b45ba"/>
@@ -415,18 +415,34 @@
 				</jr:table>
 			</componentElement>
 		</band>
+		<band height="116">
+			<staticText>
+				<reportElement x="265" y="80" width="120" height="30" uuid="5b08dfff-c9fb-459f-a2f5-ff0c587db4a2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Old Accounts:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="400" y="80" width="154" height="30" uuid="47598638-3132-457b-84d3-9dc424ae1f55"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{oldaccounts}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<pageFooter>
-		<band height="109">
+		<band height="141">
 			<staticText>
-				<reportElement x="270" y="38" width="100" height="30" uuid="1eb3b229-c4dc-47af-919b-7943ee0629be"/>
+				<reportElement x="276" y="3" width="100" height="30" uuid="1eb3b229-c4dc-47af-919b-7943ee0629be"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Prepared by:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="379" y="79" width="160" height="30" uuid="28b5c133-1a95-480c-9e20-00a7d29ac834"/>
+				<reportElement x="385" y="31" width="160" height="30" uuid="28b5c133-1a95-480c-9e20-00a7d29ac834"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 				</box>
@@ -435,19 +451,32 @@
 				</textElement>
 				<text><![CDATA[Student Account In-charge]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="385" y="0" width="154" height="30" uuid="47598638-3132-457b-84d3-9dc424ae1f55"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{oldaccounts}]]></textFieldExpression>
-			</textField>
 			<staticText>
-				<reportElement x="250" y="0" width="120" height="30" uuid="5b08dfff-c9fb-459f-a2f5-ff0c587db4a2"/>
+				<reportElement x="280" y="81" width="100" height="30" uuid="4d87eb61-1959-469d-ab10-eb25fc16f2b9"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[Old Accounts:]]></text>
+				<text><![CDATA[Approved By:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="389" y="111" width="160" height="30" uuid="9eac402a-4493-49b1-a7af-f0fe2bfc8739"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Accountant]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="111" width="160" height="30" uuid="a55eba03-54e2-4593-b12d-c2931ffb2dd4"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Signature of Student]]></text>
 			</staticText>
 		</band>
 	</pageFooter>

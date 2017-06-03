@@ -50,7 +50,7 @@ public class DB {
         else {
             try {
                 Class.forName("org.postgresql.Driver");
-                con = DriverManager.getConnection("jdbc:postgresql://"+ DB_IP +":"+DB_PORT+"/"+DB_NAME, username, password);
+                con = DriverManager.getConnection("jdbc:postgresql://"+ DB_IP +":"+DB_PORT+"/"+DB_NAME+"?client_encoding=sql_ascii&characterEncoding=sql_ascii&useUnicode=yes", username, password);
                 return con;
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();

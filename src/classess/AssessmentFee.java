@@ -11,7 +11,7 @@ public class AssessmentFee{
     private String desc;
     private Double amount;
 
-    AssessmentFee(String code, double amount, String desc) {
+    public AssessmentFee(String code, double amount, String desc) {
         this.code = code;
         this.desc = desc;
         this.amount = amount;

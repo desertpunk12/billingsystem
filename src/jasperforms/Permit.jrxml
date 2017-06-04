@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
-<!-- 2017-06-01T10:24:22 -->
+<!-- 2017-06-04T16:27:54 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_1" pageWidth="612" pageHeight="936" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b7182a0f-a173-4632-9ee8-eba0761e193d">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgreDB"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
@@ -59,7 +59,7 @@
 	</subDataset>
 	<parameter name="studid" class="java.lang.String"/>
 	<parameter name="name" class="java.lang.String"/>
-	<parameter name="yrlvl" class="java.lang.String"/>
+	<parameter name="yrlvlcourse" class="java.lang.String"/>
 	<parameter name="sysem" class="java.lang.String">
 		<parameterDescription><![CDATA[]]></parameterDescription>
 	</parameter>
@@ -113,8 +113,8 @@
 	<pageHeader>
 		<band height="80" splitType="Stretch">
 			<staticText>
-				<reportElement x="8" y="9" width="100" height="19" uuid="79f87dc3-ee13-477b-b429-c98ea481a9fc"/>
-				<textElement verticalAlignment="Middle">
+				<reportElement x="8" y="9" width="92" height="19" uuid="79f87dc3-ee13-477b-b429-c98ea481a9fc"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Students Name:]]></text>
@@ -125,18 +125,18 @@
 				<textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="9" y="32" width="100" height="20" uuid="2b47c03e-15cd-45a9-829e-4e4df5ad89eb"/>
-				<textElement verticalAlignment="Middle">
+				<reportElement x="9" y="32" width="91" height="20" uuid="2b47c03e-15cd-45a9-829e-4e4df5ad89eb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[ID number:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="332" y="9" width="100" height="19" uuid="9f2558f8-5a93-4a07-a7a6-7761261ad667"/>
+				<reportElement x="310" y="9" width="122" height="19" uuid="9f2558f8-5a93-4a07-a7a6-7761261ad667"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[Year Level:]]></text>
+				<text><![CDATA[Course & Year Level:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="114" y="32" width="216" height="20" uuid="444d2f29-ddaa-4d2a-ba2a-69c701c3a035"/>
@@ -146,7 +146,7 @@
 			<textField>
 				<reportElement x="440" y="7" width="122" height="23" uuid="b836155a-fae3-4c61-884f-38f0cff5196a"/>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$P{yrlvl}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{yrlvlcourse}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="332" y="33" width="100" height="18" uuid="c6ec4e00-ac89-4af8-ae08-f5d5749f32af"/>
@@ -364,7 +364,7 @@
 			<textField>
 				<reportElement x="428" y="1" width="126" height="20" uuid="bbd52142-8a8f-4a5f-81ae-0caf0653c2c5"/>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[String.format("%.2f",$P{minimumamount})]]></textFieldExpression>
+				<textFieldExpression><![CDATA[new DecimalFormat("#,##0.00").format($P{minimumamount})]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="294" y="49" width="127" height="20" uuid="09612a96-b1c0-4506-980f-54e3b19f85a1"/>
@@ -393,7 +393,7 @@
 			<textField>
 				<reportElement x="138" y="1" width="126" height="20" uuid="9e4aec88-e768-4d0f-a26d-0f4d96e82ff8"/>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[String.format("%.2f",$P{minimumamount})]]></textFieldExpression>
+				<textFieldExpression><![CDATA[new DecimalFormat("#,##0.00").format($P{minimumamount})]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="4" y="49" width="127" height="20" uuid="6d47e184-fd39-45e6-967f-1dff6c4af090"/>
@@ -405,7 +405,7 @@
 			<textField>
 				<reportElement x="137" y="25" width="126" height="20" uuid="5347048a-2e10-42b0-a6b3-5fe14ebc3cf3"/>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$P{remainingbalance}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[new DecimalFormat("#,##0.00").format($P{remainingbalance})]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="0" y="0" width="132" height="20" uuid="de79f81a-60a5-4b13-bc6c-88daba173eb7"/>

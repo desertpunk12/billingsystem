@@ -1,10 +1,12 @@
 package forms;
 
-import classess.Student;
+import classess.*;
+import models.Paid;
 import models.SchoolYear;
 import models.Sem;
 import models.SummaryAssessment;
 import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.fill.JRFillInterruptedException;
 import net.sf.jasperreports.swing.JRViewer;
 import utils.DB;
@@ -18,8 +20,9 @@ import java.awt.*;
 import java.awt.event.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Assessment {
@@ -45,7 +48,7 @@ public class Assessment {
     private JButton btnPrintAssessment;
     private JButton btnPrintPermit;
     private JButton btnPrintClearance;
-    private JPanel pnlNewAssessment;
+    private JPanel pnlNewAssessmentView;
     //</editor-fold>
 
     private boolean isAdmin;
@@ -56,6 +59,7 @@ public class Assessment {
     private Thread thrdAssessment;
     private Thread thrdPermit;
     private Thread thrdClearance;
+    private Thread thrdNewAssessment;
     private volatile boolean running = false;
 
     private volatile String studid;
@@ -174,7 +178,7 @@ public class Assessment {
 
     }
 
-    private Double getOldAccounts(String studid) throws SQLException{
+    private Double getTotalAmountPayable(String studid) throws SQLException{
         String query = "SELECT (allassessmentsamount-totalamountpaidforallsems) as oldaccounts FROM\n" +
                 "(SELECT sum(amt) as allassessmentsamount FROM srgb.ass_details WHERE studid='"+studid+"') ass,\n" +
                 "(SELECT sum(amt) as totalamountpaidforallsems FROM srgb.collection_details JOIN srgb.collection_header USING(orno) WHERE studid='"+studid+"') paid\n" +
@@ -183,7 +187,140 @@ public class Assessment {
 
         ResultSet rs = DB.query(query);
         rs.next();
+        System.out.println("TOTOTOTOTOOTTAAAAALLLLLL AMOUNNTTT PAYYABLE::"+rs.getDouble(1));
         return rs.getDouble(1);
+    }
+
+    private Double getOldAccounts(String studid, String sy, char sem) throws SQLException{
+        String query = "SELECT (totalassessment-totalpaid) oldaccount FROM\n" +
+                "\n" +
+                "  (\n" +
+                "    SELECT sum(total) totalassessment\n" +
+                "    FROM\n" +
+                "      (\n" +
+                "        SELECT sum(amt) total\n" +
+                "        FROM srgb.ass_details\n" +
+                "        WHERE studid = '"+studid+"' AND sy < '"+sy+"'\n" +
+                "        UNION\n" +
+                "        SELECT sum(amt) total\n" +
+                "        FROM srgb.ass_details\n" +
+                "        WHERE studid = '"+studid+"' AND sy = '"+sy+"' AND sem < '"+sem+"'\n" +
+                "      ) sxs\n" +
+                "    ) sx,\n" +
+                "  (\n" +
+                "    SELECT sum(total) totalpaid\n" +
+                "    FROM\n" +
+                "    (\n" +
+                "        SELECT sum(amt) total\n" +
+                "        FROM srgb.collection_details JOIN srgb.collection_header USING (orno)\n" +
+                "        WHERE studid='"+studid+"' AND sy < '"+sy+"'\n" +
+                "        UNION\n" +
+                "        SELECT sum(amt) total\n" +
+                "        FROM srgb.collection_details JOIN srgb.collection_header USING (orno)\n" +
+                "        WHERE studid = '"+studid+"' AND sy = '"+sy+"' AND sem < '"+sem+"'\n" +
+                "    )sys\n" +
+                "  ) sy\n" +
+                ";\n";
+        System.out.println(query);
+
+        ResultSet rs = DB.query(query);
+        rs.next();
+        System.out.println("OOOOOOLLLLLDDDDD ACCCCOUUUNNNTTTTSSS::::"+rs.getDouble(1));
+        return rs.getDouble(1);
+    }
+
+    private ArrayList<AssessmentFee> getLabFees(String studid,String sy,char sem,int yrlvl, boolean isNightClass) throws SQLException{
+        String query="SELECT subjcode,feecode,feedesc,subjlab,subjcredit,feedist,yrlvl"+yrlvl+"_" + (isNightClass?"night":"day") +
+                "\n  samt FROM srgb.registration\n" +
+                "  LEFT JOIN srgb.subject sub USING (subjcode)\n" +
+                "  LEFT JOIN srgb.deptlab dep ON(dep.deptcode=sub.subjdept)\n" +
+                "  LEFT JOIN srgb.fees fee USING(feecode)\n" +
+                "  LEFT JOIN srgb.labmatrix USING(sy,sem,subjcode)\n" +
+                "  WHERE studid='"+studid+"' AND sy='"+sy+"' AND sem='"+sem+"' AND subjlab IS NOT NULL AND subjlab != 0\n" +
+                "   ORDER BY feecode,feedesc;";
+
+        System.out.println(query);
+        ArrayList<AssessmentFee> fees = new ArrayList<>();
+        ArrayList<AssessmentLabFee> labfees = new ArrayList<>();
+        ResultSet rs = DB.query(query);
+        if(rs.next()){
+            labfees.add(new AssessmentLabFee(rs.getString(1),rs.getString(2),rs.getString(3),rs.getDouble(4),rs.getDouble(5),rs.getString(6),rs.getDouble(7)));
+        }else{
+            System.out.println("No Lab Fees");
+            return null;
+        }
+
+        while (rs.next()){
+            labfees.add(new AssessmentLabFee(rs.getString(1),rs.getString(2),rs.getString(3),rs.getDouble(4),rs.getDouble(5),rs.getString(6),rs.getDouble(7)));
+        }
+        String fc = labfees.get(0).getFeecode();
+        double amt = labfees.get(0).getAmt();
+        for (int i = 1; i < labfees.size(); i++) {
+            if(fc.equals(labfees.get(i))){
+                amt+=labfees.get(i).getAmt();
+                continue;
+            }
+            fees.add(new AssessmentFee(fc,amt,labfees.get(i-1).getFeedesc()));
+            fc = labfees.get(i).getFeecode();
+            amt = labfees.get(i).getAmt();
+        }
+
+
+        return fees;
+    }
+
+    private synchronized void viewNewAssessmentReport() throws JRFillInterruptedException, JRException, SQLException{
+//        running = true;
+        String srcFileCompiled = "src/jasperforms/COB.jasper";
+        HashMap<String,Object> m = new HashMap<>();
+        m.put("studid",studid);
+
+
+        String query = "SELECT sy,sem,studlevel,studmajor,nightclass,schcode,schdesc,studfullname2 FROM\n" +
+                "   srgb.semester \n" +
+                "  LEFT JOIN srgb.semstudent USING(sy,sem)\n" +
+                "   LEFT JOIN srgb.student USING(studid)\n" +
+                "    LEFT JOIN srgb.scholar ON (schcode=scholarstatus)\n" +
+                "  where current AND studid='"+studid+"';";
+        System.out.println(query);
+        ResultSet rs = DB.query(query);
+        if(!rs.next()){
+            System.out.println("No Semester is currenttt??? This is a server Error");
+            return;
+        }
+        String curSy=rs.getString(1);
+        char curSem=rs.getString(2).charAt(0);
+        int yrlvl=rs.getInt(3);
+        String course=rs.getString(4);
+        boolean isNightClass=rs.getBoolean(5);
+        String scholarCode=rs.getString(6);
+        String scholarship=rs.getString(7);
+        String fullname=rs.getString(8);
+        m.put("name",fullname);
+        m.put("sysem","Term "+curSem+" "+curSy);
+        m.put("scholarship",scholarship);
+        m.put("yrandcourse","Year "+yrlvl+" in "+course);
+        AssessmentSubjects subjects = new AssessmentSubjects(studid,curSy,curSem);
+        AssessmentDefaultFees fees = new AssessmentDefaultFees(studid,curSy,curSem,yrlvl,isNightClass);
+        //Add lab fee
+        ArrayList<AssessmentFee> asdf = getLabFees(studid,curSy,curSem,yrlvl,isNightClass);
+        if(asdf!=null)
+            for (AssessmentFee asf: asdf ) {
+                fees.add(asf);
+            }
+        System.out.println("**********************************************************");
+        for (AssessmentFee popqw : fees.getFeeList()) {
+            System.out.println(popqw.getDesc());
+        }
+        System.out.println("**********************************************************");
+
+        m.put("subjectsDataSource",subjects.getDataSource());
+        m.put("feesDataSource",fees.getDataSource());//TODO: generate the default fees also account in the edit and the scholarship
+        Double oldaccounts = getOldAccounts(studid,curSy,curSem);
+        m.put("oldaccounts",oldaccounts);
+        m.put("totalamountpayable",oldaccounts);
+
+        viewReport(pnlNewAssessmentView,srcFileCompiled,m,true);
     }
 
 
@@ -201,10 +338,27 @@ public class Assessment {
         }else System.out.println("GEEEEEEEEEENNNNNNNNNNNNNNNNNNN DAAAAAAAAAAAAAAAATEEEEEEEEEEEEE NNNNNNNNNNNNNNNUUUUUUUUUUUUULLLLL!!!");
         m.put("subjectsDataSource",currentStudent.getSubjectsDataSource());
         m.put("feesDataSource",currentStudent.getFeesDataSource());
-        m.put("oldaccounts",getOldAccounts(currentStudent.getStudId()));
+//        m.put("totalamountpayable",getTotalAmountPayable(currentStudent.getStudId())+currentStudent.getRemainingBalance());
+        Double  oldaccounts = getOldAccounts(currentStudent.getStudId(),sy,sem);
+        m.put("oldaccounts",oldaccounts);
+        m.put("totalamountpayable",oldaccounts+currentStudent.getRemainingBalance());
         m.put("scholarship",currentStudent.getScholarship());
-
+        m.put("paidDataSource",fetchAssessmentPaidDataSource(currentStudent.getStudId(),sy,sem));
+        System.out.println("NEW REPORTNGGG!");
         viewReport(pnlAssessmentView,srcFileCompiled,m,true);
+    }
+
+    private JRBeanCollectionDataSource fetchAssessmentPaidDataSource(String studid,String sy, char sem) throws SQLException{
+        String query = "SELECT orno,sum(amt) AS  payed,paydate FROM srgb.collection_details JOIN srgb.collection_header USING(orno)\n" +
+                "  WHERE studid='"+studid+"' AND sy='"+sy+"' AND sem='"+sem+"' GROUP BY orno,sy,sem,paydate ORDER BY sy,sem;\n";
+        ResultSet rs = DB.query(query);
+        ArrayList<Paid> paids = new ArrayList<>();
+        SimpleDateFormat dfrmt = new SimpleDateFormat("MM/dd/yyyy");
+        while(rs.next()){
+            paids.add(new Paid(rs.getString(1),dfrmt.format(rs.getDate(3)),rs.getDouble(2)));
+        }
+
+        return new JRBeanCollectionDataSource(paids,false);
     }
 
 
@@ -214,12 +368,12 @@ public class Assessment {
         HashMap<String,Object> m = new HashMap<>();
         m.put("name",currentStudent.getFullName());
         m.put("studid",currentStudent.getStudId());
-        m.put("yrlvl",""+currentStudent.getYrlvl());
+        m.put("yrlvlcourse",currentStudent.getCourse().replace(" ","")+" "+currentStudent.getYrlvl());
         m.put("sysem","Term "+sem+" "+sy);
         m.put("subjectsDataSource1",currentStudent.getSubjectsDataSource());
         m.put("subjectsDataSource2",currentStudent.getSubjectsDataSource());
         m.put("scholarship",currentStudent.getScholarship());
-        m.put("minimumamount", Math.min(currentStudent.getTotalAssessment()/3,currentStudent.getRemainingBalance()));
+        m.put("minimumamount", currentStudent.getRemainingBalance()/3);
         m.put("remainingbalance", currentStudent.getRemainingBalance());
         viewReport(pnlPermitView,srcFileCompiled,m,true);
     }
@@ -302,14 +456,18 @@ public class Assessment {
 
 
     private void showSummaryAssessment(){
+
+
         String tmpstudid = txtSearchStudentIdNumber.getText();
         if(tmpstudid.equals(studid))
             return;
         studid = tmpstudid;
+        pnlNewAssessmentView.removeAll();
         pnlAssessmentView.removeAll();
         pnlPermitView.removeAll();
         pnlClearanceView.removeAll();
 
+        pnlNewAssessmentView.updateUI();
         pnlAssessmentView.updateUI();
         pnlPermitView.updateUI();
         pnlClearanceView.updateUI();
@@ -322,6 +480,11 @@ public class Assessment {
             cmbPrevSy.addItem(schoolYear.getSchoolYear());
         }
 
+        try {
+            viewNewAssessmentReport();
+        } catch (JRException | SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -349,6 +512,7 @@ public class Assessment {
         setName();
 
         pnlAssessmentView.setLayout(new BoxLayout(pnlAssessmentView,BoxLayout.PAGE_AXIS));
+        pnlNewAssessmentView.setLayout(new BoxLayout(pnlNewAssessmentView,BoxLayout.PAGE_AXIS));
         pnlPermitView.setLayout(new BoxLayout(pnlPermitView,BoxLayout.PAGE_AXIS));
         pnlClearanceView.setLayout(new BoxLayout(pnlClearanceView,BoxLayout.PAGE_AXIS));
 

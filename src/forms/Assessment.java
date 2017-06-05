@@ -45,10 +45,10 @@ public class Assessment {
     private JPanel pnlClearanceView;
     private JComboBox cmbPrevSy;
     private JPasswordField hiddenSelectedSem;
-    private JButton btnPrintAssessment;
-    private JButton btnPrintPermit;
-    private JButton btnPrintClearance;
     private JPanel pnlNewAssessmentView;
+    private JTabbedPane tabPane;
+    private JButton btnCreateAssessment;
+    private JLabel lblPrivilage;
     //</editor-fold>
 
     private boolean isAdmin;
@@ -69,6 +69,7 @@ public class Assessment {
 //    private JPasswordField hiddenSelectedSem;
 
     private SummaryAssessment smryAss;
+    private AssessmentDefaultFees newAssessFees;
 
     public Assessment(boolean isAdmin) {
         this.isAdmin = isAdmin;
@@ -80,11 +81,23 @@ public class Assessment {
 //        hiddenSelectedSem = new JPasswordField();
 //        hiddenSelectedSem.setVisible(false);
 //        SwingUtilities.invokeLater(()->pnlSummary.add(hiddenSelectedSem));
-
+        if(!isAdmin){
+            btnFees.setVisible(false);
+            lblPrivilage.setText(" as Normal user");
+        }
+        lblPrivilage.setText(" as Admin");
     }
 
 
     private void listeners(){
+
+        btnCreateAssessment.addActionListener(e -> {
+            try {
+                createAssessment(newAssessFees);
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+        });
 
         hiddenSelectedSem.addActionListener(e -> assessStudent(studid) );
 
@@ -95,8 +108,14 @@ public class Assessment {
         });
 
         btnEditAssessment.addActionListener((e)->{
-            EditAssessment editView = new EditAssessment();
-            editView.show();
+            EditAssessment dialog = new EditAssessment(newAssessFees);
+            dialog.pack();
+            dialog.setVisible(true);
+            try {
+                viewNewAssessmentReport();
+            } catch (JRException | SQLException e1) {
+                e1.printStackTrace();
+            }
         });
 
         btnFees.addActionListener(e -> new Fees().show());
@@ -256,7 +275,7 @@ public class Assessment {
         String fc = labfees.get(0).getFeecode();
         double amt = labfees.get(0).getAmt();
         for (int i = 1; i < labfees.size(); i++) {
-            if(fc.equals(labfees.get(i))){
+            if(fc.equals(labfees.get(i).getFeecode())){
                 amt+=labfees.get(i).getAmt();
                 continue;
             }
@@ -271,12 +290,20 @@ public class Assessment {
 
     private synchronized void viewNewAssessmentReport() throws JRFillInterruptedException, JRException, SQLException{
 //        running = true;
+        //CHECK if student already has assessment for the current sem
+        String query = "SELECT * FROM srgb.ass_header JOIN srgb.semester USING(sy,sem) WHERE current AND studid='"+studid+"';";
+//        if(DB.query(query).next()) {
+//            pnlNewAssessmentView.add(new JLabel("Student already has assessment for the current semester"));
+//            return;
+//        }
+
+
         String srcFileCompiled = "src/jasperforms/COB.jasper";
         HashMap<String,Object> m = new HashMap<>();
         m.put("studid",studid);
 
 
-        String query = "SELECT sy,sem,studlevel,studmajor,nightclass,schcode,schdesc,studfullname2 FROM\n" +
+        query = "SELECT sy,sem,studlevel,studmajor,nightclass,schcode,schdesc,studfullname2 FROM\n" +
                 "   srgb.semester \n" +
                 "  LEFT JOIN srgb.semstudent USING(sy,sem)\n" +
                 "   LEFT JOIN srgb.student USING(studid)\n" +
@@ -301,26 +328,39 @@ public class Assessment {
         m.put("scholarship",scholarship);
         m.put("yrandcourse","Year "+yrlvl+" in "+course);
         AssessmentSubjects subjects = new AssessmentSubjects(studid,curSy,curSem);
-        AssessmentDefaultFees fees = new AssessmentDefaultFees(studid,curSy,curSem,yrlvl,isNightClass);
+        if(newAssessFees==null)
+            newAssessFees = new AssessmentDefaultFees(studid,curSy,curSem,yrlvl,isNightClass);
         //Add lab fee
         ArrayList<AssessmentFee> asdf = getLabFees(studid,curSy,curSem,yrlvl,isNightClass);
         if(asdf!=null)
             for (AssessmentFee asf: asdf ) {
-                fees.add(asf);
+                newAssessFees.add(asf);
             }
         System.out.println("**********************************************************");
-        for (AssessmentFee popqw : fees.getFeeList()) {
+        for (AssessmentFee popqw : newAssessFees.getFeeList()) {
             System.out.println(popqw.getDesc());
         }
         System.out.println("**********************************************************");
 
         m.put("subjectsDataSource",subjects.getDataSource());
-        m.put("feesDataSource",fees.getDataSource());//TODO: generate the default fees also account in the edit and the scholarship
+        m.put("feesDataSource",newAssessFees.getDataSource());//TODO: generate the default fees also account in the edit and the scholarship
         Double oldaccounts = getOldAccounts(studid,curSy,curSem);
         m.put("oldaccounts",oldaccounts);
         m.put("totalamountpayable",oldaccounts);
 
         viewReport(pnlNewAssessmentView,srcFileCompiled,m,true);
+    }
+
+    private void createAssessment(AssessmentDefaultFees assdef) throws SQLException{
+        String query = "";
+
+        for (int i = 0; i < assdef.getFeeList().size(); i++) {
+            query = "INSERT INTO srgb.ass_details (SELECT sy,sem,'"+studid+"' studid,'"+assdef.getFeeList().get(i).getCode()+"' feecode,"+assdef.getFeeList().get(i).getAmount()+" amt FROM srgb.semester where current);";
+            System.out.println(query);
+            DB.query(query,true);
+        }
+
+        System.out.println("Successfully cReted new assessment");
     }
 
 
@@ -456,6 +496,7 @@ public class Assessment {
 
 
     private void showSummaryAssessment(){
+        newAssessFees = null;
 
 
         String tmpstudid = txtSearchStudentIdNumber.getText();

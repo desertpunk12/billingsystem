@@ -62,15 +62,15 @@ public class Login {
                 return;
             }
             if(DB.tryLogin(txtUsername.getText(),String.valueOf(txtPassword.getPassword()))){
-//                try {
-//                    ResultSet rs = DB.callf("public.isassessadmin", "");
-//                    rs.next();
-                    boolean isAdmin = true;//rs.getBoolean(1);
+                try {
+                    ResultSet rs = DB.callf("public.isassessadmin", "");
+                    rs.next();
+                    boolean isAdmin = rs.getBoolean(1);
                     new Assessment(isAdmin).show();
                     frame.dispose();
-//                }catch (SQLException e1){
-//                    e1.printStackTrace();
-//                }
+                }catch (SQLException e1){
+                    e1.printStackTrace();
+                }
 
             }else{
                 System.out.println("Login Failed Either No Connection or Login Details are Wrong!");

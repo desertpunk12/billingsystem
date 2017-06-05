@@ -36,13 +36,15 @@ public class AssessmentLabFee {
     }
 
     public Double getAmt(){
+        if(feedist==null)
+            return 0D;
         if(feedist.equals("SUBJECT"))
             return amt;
         if(feedist.equals("LAB HR"))
             return amt*subjcredit;
         if(feedist.equals("UNIT"))
             return amt*subjcredit;
-        return null;
+        return 0D;
     }
 
 }

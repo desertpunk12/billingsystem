@@ -36,7 +36,7 @@ public class AssessmentDefaultFees {
             fetchData();
         } catch (SQLException e) {
             e.printStackTrace();
-            }
+        }
     }
 
     public void add(AssessmentFee fee){

@@ -39,7 +39,6 @@ public class AssessmentSubjects {
     private void fetchData() throws SQLException{
         if(studid == null || studid.equals(""))
             ERR.pr("studid is null or empty!");
-
         fetchData(studid,sy,sem);
 
     }

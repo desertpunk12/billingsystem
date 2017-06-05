@@ -133,6 +133,11 @@ public class Assessment {
 
             @Override
             public void mouseClicked(MouseEvent e) {
+                try {
+                    DB.close();
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
                 new Login().show();
                 frame.dispose();
             }
@@ -248,6 +253,52 @@ public class Assessment {
         return rs.getDouble(1);
     }
 
+    private void applyScholarshipDiscount(AssessmentDefaultFees assdef,ArrayList<AssessmentFee> labasdef,String schcode) throws SQLException{
+        String query = "select tuition_disc,lab_disc,misc_disc,specialprogram from srgb.scholar where schcode='"+schcode+"';";
+        ResultSet rs = DB.query(query);
+        if(!rs.next()){
+            System.out.println("SCHOLARSHIP WITH THAT CODE NOT FOUND!!!!!!");
+            return;
+        }
+        double tui_disc = rs.getInt(1);
+        double lab_disc = rs.getInt(2);
+        double misc_disc = rs.getInt(3);
+        double specialprogram = rs.getInt(4);
+
+        System.out.println("TUITION disc:"+tui_disc);
+
+        if(tui_disc!=0 || misc_disc!=0) {
+            for (int i = 0; i < assdef.getFeeList().size(); i++) {
+                String feecode = assdef.getFeeList().get(i).getCode();
+                System.out.println(feecode);
+                double amt = assdef.getFeeList().get(i).getAmount();
+                if (tui_disc != 0 && feecode.contains("TUITIONFEE")) {
+                    amt = amt - (amt * (tui_disc / 100));
+                    System.out.println("TUTION NEW AMOUNT AFETER SCHOLAR CALCULATION : " + amt + " , scohlarship discount is " + tui_disc + " adn scholarship code is " + schcode);
+                    assdef.getFeeList().get(i).setAmount(amt);
+                } else if(misc_disc!= 0 && !feecode.contains("INSURANCE")){
+                    amt = amt - (amt * (misc_disc / 100));
+                    System.out.println(feecode+" NEW AMOUNT AFETER SCHOLAR CALCULATION : " + amt + " , scohlarship discount is " + tui_disc + " adn scholarship code is " + schcode);
+                    assdef.getFeeList().get(i).setAmount(amt);
+                }
+            }
+        }
+
+        if(lab_disc!=0){
+            for (int i = 0; i < labasdef.size(); i++) {
+                String feecode = labasdef.get(i).getCode();
+                double amt = assdef.getFeeList().get(i).getAmount();
+                amt = amt - (amt * (lab_disc/100));
+                System.out.println(feecode+" NEW AMOUNT AFETER SCHOLAR CALCULATION : " + amt + " , scohlarship discount is " + tui_disc + " adn scholarship code is " + schcode);
+                labasdef.get(i).setAmount(amt);
+            }
+        }
+
+
+
+
+    }
+
     private ArrayList<AssessmentFee> getLabFees(String studid,String sy,char sem,int yrlvl, boolean isNightClass) throws SQLException{
         String query="SELECT subjcode,feecode,feedesc,subjlab,subjcredit,feedist,yrlvl"+yrlvl+"_" + (isNightClass?"night":"day") +
                 "\n  samt FROM srgb.registration\n" +
@@ -328,12 +379,13 @@ public class Assessment {
         m.put("scholarship",scholarship);
         m.put("yrandcourse","Year "+yrlvl+" in "+course);
         AssessmentSubjects subjects = new AssessmentSubjects(studid,curSy,curSem);
-        if(newAssessFees==null)
+//        if(newAssessFees==null)
             newAssessFees = new AssessmentDefaultFees(studid,curSy,curSem,yrlvl,isNightClass);
         //Add lab fee
-        ArrayList<AssessmentFee> asdf = getLabFees(studid,curSy,curSem,yrlvl,isNightClass);
-        if(asdf!=null)
-            for (AssessmentFee asf: asdf ) {
+        ArrayList<AssessmentFee> labasdef = getLabFees(studid,curSy,curSem,yrlvl,isNightClass);
+        applyScholarshipDiscount(newAssessFees,labasdef,scholarCode);
+        if(labasdef!=null)
+            for (AssessmentFee asf: labasdef ) {
                 newAssessFees.add(asf);
             }
         System.out.println("**********************************************************");
@@ -488,11 +540,6 @@ public class Assessment {
 
     }
 
-    private void createNewAssessment(String studid){
-        //get the current semester
-
-
-    }
 
 
     private void showSummaryAssessment(){

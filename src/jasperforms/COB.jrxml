@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
-<!-- 2017-06-04T12:03:51 -->
+<!-- 2017-06-07T10:17:51 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="612" pageHeight="936" whenNoDataType="NoDataSection" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Error" uuid="0c453be4-2d5d-4010-a59c-e8f356bf2d85">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgreDB"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
@@ -111,7 +111,7 @@
 	<parameter name="feesDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource">
 		<parameterDescription><![CDATA[]]></parameterDescription>
 	</parameter>
-	<parameter name="oldaccounts" class="java.lang.Double">
+	<parameter name="oldaccounts" class="java.lang.String">
 		<parameterDescription><![CDATA[]]></parameterDescription>
 		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
 	</parameter>
@@ -587,18 +587,20 @@
 				<text><![CDATA[Signature of Student]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="269" y="-1" width="120" height="18" uuid="5b08dfff-c9fb-459f-a2f5-ff0c587db4a2"/>
+				<reportElement key="" x="269" y="-1" width="120" height="18" uuid="5b08dfff-c9fb-459f-a2f5-ff0c587db4a2">
+					<printWhenExpression><![CDATA[$P{oldaccounts}!=null && !$P{oldaccounts}.equals("")?Boolean.TRUE:Boolean.FALSE]]></printWhenExpression>
+				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Old Accounts:]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="404" y="-1" width="154" height="18" uuid="47598638-3132-457b-84d3-9dc424ae1f55"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[new DecimalFormat("#,##0.00").format($P{oldaccounts})]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{oldaccounts}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="224" y="19" width="165" height="18" uuid="fd464638-5df9-4b62-b56f-2c0bd3b2f6ee"/>

@@ -20,6 +20,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -49,6 +50,8 @@ public class Assessment {
     private JTabbedPane tabPane;
     private JButton btnCreateAssessment;
     private JLabel lblPrivilage;
+    private JButton btnHideOldAccounts
+            ;
     //</editor-fold>
 
     private boolean isAdmin;
@@ -66,10 +69,14 @@ public class Assessment {
     private volatile String sy;
     private volatile char sem;
 
+    private boolean hideOldAccount = false;
+    private boolean refresh = false;
+
 //    private JPasswordField hiddenSelectedSem;
 
     private SummaryAssessment smryAss;
     private AssessmentDefaultFees newAssessFees;
+    private Double newoldaccounts;
 
     public Assessment(boolean isAdmin) {
         this.isAdmin = isAdmin;
@@ -86,10 +93,24 @@ public class Assessment {
             lblPrivilage.setText(" as Normal user");
         }
         lblPrivilage.setText(" as Admin");
+
     }
 
 
     private void listeners(){
+        btnHideOldAccounts.addActionListener(e -> {
+            hideOldAccount = !hideOldAccount;
+            try {
+                viewNewAssessmentReport();
+                viewAssessmentReport();
+            } catch (JRException | SQLException e1) {
+                e1.printStackTrace();
+            }
+            if(hideOldAccount)
+                btnHideOldAccounts.setText("Show Old Accounts");
+            else
+                btnHideOldAccounts.setText("Hide Old Accounts");
+        });
 
         btnCreateAssessment.addActionListener(e -> {
             try {
@@ -343,10 +364,10 @@ public class Assessment {
 //        running = true;
         //CHECK if student already has assessment for the current sem
         String query = "SELECT * FROM srgb.ass_header JOIN srgb.semester USING(sy,sem) WHERE current AND studid='"+studid+"';";
-//        if(DB.query(query).next()) {
-//            pnlNewAssessmentView.add(new JLabel("Student already has assessment for the current semester"));
-//            return;
-//        }
+        if(DB.query(query).next()) {
+            pnlNewAssessmentView.add(new JLabel("Student already has assessment for the current semester"));
+            return;
+        }
 
 
         String srcFileCompiled = "src/jasperforms/COB.jasper";
@@ -396,9 +417,15 @@ public class Assessment {
 
         m.put("subjectsDataSource",subjects.getDataSource());
         m.put("feesDataSource",newAssessFees.getDataSource());//TODO: generate the default fees also account in the edit and the scholarship
-        Double oldaccounts = getOldAccounts(studid,curSy,curSem);
-        m.put("oldaccounts",oldaccounts);
-        m.put("totalamountpayable",oldaccounts);
+//        if(newoldaccounts==null)
+            newoldaccounts = getOldAccounts(studid,curSy,curSem);
+        if(!hideOldAccount){
+            m.put("oldaccounts",new DecimalFormat("#,##0.00").format(newoldaccounts));
+            m.put("totalamountpayable",newoldaccounts+newAssessFees.getTotalAssessment());
+        }else {
+            m.put("oldaccounts","");
+            m.put("totalamountpayable", newAssessFees.getTotalAssessment());
+        }
 
         viewReport(pnlNewAssessmentView,srcFileCompiled,m,true);
     }
@@ -406,13 +433,18 @@ public class Assessment {
     private void createAssessment(AssessmentDefaultFees assdef) throws SQLException{
         String query = "";
 
+        query = "INSERT INTO srgb.ass_header (SELECT sy,sem,'"+studid+"',NOW() FROM srgb.semester WHERE current);";
+        System.out.println(query);
+        DB.query(query,true);
         for (int i = 0; i < assdef.getFeeList().size(); i++) {
             query = "INSERT INTO srgb.ass_details (SELECT sy,sem,'"+studid+"' studid,'"+assdef.getFeeList().get(i).getCode()+"' feecode,"+assdef.getFeeList().get(i).getAmount()+" amt FROM srgb.semester where current);";
             System.out.println(query);
             DB.query(query,true);
         }
-
+        refresh = true;
+        showSummaryAssessment();
         System.out.println("Successfully cReted new assessment");
+        JOptionPane.showMessageDialog(frame,"Successfully Created Assessment");
     }
 
 
@@ -432,8 +464,13 @@ public class Assessment {
         m.put("feesDataSource",currentStudent.getFeesDataSource());
 //        m.put("totalamountpayable",getTotalAmountPayable(currentStudent.getStudId())+currentStudent.getRemainingBalance());
         Double  oldaccounts = getOldAccounts(currentStudent.getStudId(),sy,sem);
-        m.put("oldaccounts",oldaccounts);
-        m.put("totalamountpayable",oldaccounts+currentStudent.getRemainingBalance());
+        if(!hideOldAccount) {
+            m.put("oldaccounts", new DecimalFormat("#,##0.00").format(oldaccounts));
+            m.put("totalamountpayable", oldaccounts + currentStudent.getRemainingBalance());
+        }else {
+            m.put("oldaccounts","");
+            m.put("totalamountpayable", currentStudent.getRemainingBalance());
+        }
         m.put("scholarship",currentStudent.getScholarship());
         m.put("paidDataSource",fetchAssessmentPaidDataSource(currentStudent.getStudId(),sy,sem));
         System.out.println("NEW REPORTNGGG!");
@@ -544,11 +581,14 @@ public class Assessment {
 
     private void showSummaryAssessment(){
         newAssessFees = null;
+        hideOldAccount = false;
 
 
         String tmpstudid = txtSearchStudentIdNumber.getText();
-        if(tmpstudid.equals(studid))
+        if(tmpstudid.equals(studid) && !refresh)
             return;
+
+        refresh = false;
         studid = tmpstudid;
         pnlNewAssessmentView.removeAll();
         pnlAssessmentView.removeAll();

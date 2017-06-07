@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
-<!-- 2017-06-04T03:35:07 -->
+<!-- 2017-06-07T09:55:00 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sample clearance" pageWidth="612" pageHeight="936" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ef5a76ad-3f65-4b6f-a1bd-cfa4bea58d0e">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgreDB"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
@@ -376,7 +376,7 @@
 		</band>
 	</detail>
 	<pageFooter>
-		<band height="87" splitType="Stretch">
+		<band height="88" splitType="Stretch">
 			<textField>
 				<reportElement x="407" y="2" width="126" height="20" uuid="10b65f69-2a4a-49e2-aca2-b01e022377f9"/>
 				<textElement verticalAlignment="Middle">
@@ -391,16 +391,6 @@
 				</textElement>
 				<text><![CDATA[Remaining Balance:]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="274" y="32" width="127" height="20" uuid="6e08e43a-fe73-4d21-af8c-5366ef2ac05f"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Account Verified by:]]></text>
-			</staticText>
-			<line>
-				<reportElement x="414" y="75" width="118" height="1" uuid="8f44a8e8-15b9-462f-b43c-3dc7103b07f6"/>
-			</line>
 		</band>
 	</pageFooter>
 </jasperReport>

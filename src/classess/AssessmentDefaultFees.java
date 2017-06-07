@@ -104,4 +104,13 @@ public class AssessmentDefaultFees {
     }
 
 
+    public Double getTotalAssessment(){
+        double total = 0;
+        for (AssessmentFee fee : getFeeList()) {
+            total += fee.getAmount();
+        }
+
+        return total;
+    }
+
 }

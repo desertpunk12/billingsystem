@@ -120,6 +120,7 @@ public class Assessment {
             }
         });
 
+
         hiddenSelectedSem.addActionListener(e -> assessStudent(studid) );
 
         cmbPrevSy.addItemListener(e -> {
@@ -196,6 +197,8 @@ public class Assessment {
                 splitPane.setDividerLocation(0.75);
             }
         });
+
+
 
     }
 

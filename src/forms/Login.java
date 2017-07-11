@@ -63,7 +63,8 @@ public class Login {
             }
             if(DB.tryLogin(txtUsername.getText(),String.valueOf(txtPassword.getPassword()))){
                 try {
-                    ResultSet rs = DB.callf("public.isassessadmin", "");
+//                    ResultSet rs = DB.callf("public.isassessadmin", "");
+                    ResultSet rs = DB.callf("public.ismember", "current_user","'srgb_admin'");
                     rs.next();
                     boolean isAdmin = rs.getBoolean(1);
                     new Assessment(isAdmin).show();

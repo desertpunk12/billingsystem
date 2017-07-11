@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact name="billingsystem:jar">
+  <artifact build-on-make="true" name="billingsystem:jar">
     <output-path>$PROJECT_DIR$/../../../../../Public/BillingSystemExport</output-path>
     <root id="root">
       <element id="archive" name="billingsystem.jar">

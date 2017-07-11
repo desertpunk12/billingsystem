@@ -23,6 +23,7 @@ public class AddEditFee extends JDialog {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
+        setTitle("Add Fee");
 
         listeners();
 

@@ -4,6 +4,8 @@ import utils.DB;
 import utils.JFrameHelper;
 
 import javax.swing.*;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import java.awt.event.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,6 +24,7 @@ public class Fees {
     private JTable tblFees;
     private JButton btnRemoveDefaultFee;
     private JButton btnAddDefaultFee;
+    private JButton btnEditSelected;
 
     private JFrame frame;
 
@@ -62,6 +65,23 @@ public class Fees {
     }
 
     private void listeners() {
+        btnEditSelected.addActionListener(e -> {
+            switch(cmbFeetype.getSelectedIndex()){
+                case 0:
+                    new EditSelectedFeeMisc();
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+            }
+        });
+
+
         cmbFeetype.addItemListener(e -> {
             if(e.getStateChange()==ItemEvent.SELECTED){
                 refreshTable();

@@ -35,6 +35,7 @@ public class AddDefaultFees extends JDialog {
     private void uiInit() {
         setContentPane(contentPane);
         setModal(true);
+        setTitle("Add Default Fee");
         getRootPane().setDefaultButton(btnAccept);
         tblAddDefaultFee.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         listeners();

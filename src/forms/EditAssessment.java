@@ -28,6 +28,7 @@ public class EditAssessment extends JDialog{
         setContentPane(pnlMain);
         setModal(true);
         getRootPane().setDefaultButton(btnAcceptChanges);
+        setTitle("Edit Assessment");
 
         this.assdeffees = assdeffees;
 

@@ -403,7 +403,7 @@ public class Assessment {
         m.put("scholarship",scholarship);
         m.put("yrandcourse","Year "+yrlvl+" in "+course);
         AssessmentSubjects subjects = new AssessmentSubjects(studid,curSy,curSem);
-//        if(newAssessFees==null)
+        if(newAssessFees==null)
             newAssessFees = new AssessmentDefaultFees(studid,curSy,curSem,yrlvl,isNightClass);
         //Add lab fee
         ArrayList<AssessmentFee> labasdef = getLabFees(studid,curSy,curSem,yrlvl,isNightClass);
@@ -420,7 +420,7 @@ public class Assessment {
 
         m.put("subjectsDataSource",subjects.getDataSource());
         m.put("feesDataSource",newAssessFees.getDataSource());//TODO: generate the default fees also account in the edit and the scholarship
-//        if(newoldaccounts==null)
+        if(newoldaccounts==null)
             newoldaccounts = getOldAccounts(studid,curSy,curSem);
         if(!hideOldAccount){
             m.put("oldaccounts",new DecimalFormat("#,##0.00").format(newoldaccounts));
